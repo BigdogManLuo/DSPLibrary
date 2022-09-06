@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;project_1.2&apos;" deleteContents="false" description="Delete resource &apos;project_1.2&apos;" element1="/project_1.2" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1630652201086"/>&#x0A;<refactoring comment="Delete resource &apos;empty_sysconfig_337zwt/position_transf.h&apos;" deleteContents="false" description="Delete resource &apos;empty_sysconfig_337zwt/position_transf.h&apos;" element1="/empty_sysconfig_337zwt/position_transf.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1630653711910"/>
+</session>

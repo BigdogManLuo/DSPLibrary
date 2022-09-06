@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.ti.ccstudio.project.ui.internal.preferences.DynamicPreferencePageManager">
+	</section>
+	<section name="com.ti.ccstudio.project.ui.internal.properties.DynamicPropertiesPageManager">
+	</section>
+	<section name="com.ti.ccstudio.project.ui.internal.wizards.importexport.ProjectImportPage">
+		<item key="CCS.BROWSE_DIRS_FILTER" value="D:\CCS\workSpace\DSP\Inversion_3Phase_1.2\empty_sysconfig_337zwt"/>
+		<item key="CCS.COPY_INTO_WORKSPACE" value="false"/>
+		<item key="CCS.IMPORT_REFERENCED_PROJECTS" value="false"/>
+		<item key="CCS.IMPORT_FROM_ARCHIVE" value="false"/>
+	</section>
+	<section name="com.ti.ccstudio.project.ui.internal.wizards.project.ProjectSettingsPage">
+		<item key="CCS.TARGET" value="com.ti.ccstudio.deviceModel.TMS470.GenericARM7Device"/>
+		<section name="1">
+			<item key="CCS.OUTPUT_TYPE" value="executable"/>
+			<item key="CCS.LINKER_COMMAND_FILE" value="null"/>
+			<item key="CCS.RUNTIME_SUPPORT_LIB" value="null"/>
+		</section>
+	</section>
+</section>

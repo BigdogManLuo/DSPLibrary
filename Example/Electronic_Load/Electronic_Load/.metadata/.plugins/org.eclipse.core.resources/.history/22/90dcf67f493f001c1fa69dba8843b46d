@@ -1,0 +1,187 @@
+#include"pr.h"
+#include"queque.h"
+#include"math.h"
+
+ButterQueue ialfa={{0,0,0},0,0,0};
+ButterQueue ibeta={{0,0,0},0,0,0};
+ButterQueue itest={{0,0,0},0,0,0};
+ButterQueue i3alfa={{0,0,0},0,0,0};
+ButterQueue i3beta={{0,0,0},0,0,0};
+ButterQueue i5alfa={{0,0,0},0,0,0};
+ButterQueue i5beta={{0,0,0},0,0,0};
+ButterQueue i7alfa={{0,0,0},0,0,0};
+ButterQueue i7beta={{0,0,0},0,0,0};
+
+//double SOS_PR[6]={1.25616925921,0,-1.25616925921,10000,-19987.62173119,9997.48766148};//基波非理想 10k
+double SOS_PR[6]={251.248768297223,0,-251.248768297223,1000000,-1999250.83956193,999497.502463405};//基波非理想 20k
+double SOS_PR3[6]={251.124881913215,0,-251.124881913215,1000000,-1997278.87874950,999497.750236173};//3次非理想型 20k
+//double SOS_PR3[6]={1.25369548,0,-1.25369548,10000,-19908.8740972,9997.492609};// 3次非理想型 10k
+//double SOS_PR3[6]={49.889212970921,0,-49.889212970921,1000000,-1991137.037673716,1000000};//3次理想型 10k
+//double SOS_PR3[6]={2.49861285697470,0,-2.49861285697470,100000,-199778.057115952,100000};//3次理想 20k
+
+//double SOS_PR5[6]={1.24877705,0,-1.24877705,10000,-19752.3056433,9997.502446};//5次非理想 10k
+double SOS_PR5[6]={250.877475301395,0,-250.877475301395,1000000,-1993340.78541379,999498.245049397}; //5次非理想 20k
+double SOS_PR7[6]={12414.71335623,0,-12414.71335623,10000,-19519.7428969,0.9997517057};//10K
+
+
+float scale_PR=1;
+double test=0;
+
+float upLimit_alfa=0;
+float upLimit_beta=0;
+float upLimit3_alfa=0;
+float upLimit3_beta=0;
+float upLimit5_alfa=0;
+float upLimit5_beta=0;
+float upLimit7_alfa=0;
+float upLimit7_beta=0;
+
+float upLimit_test=0;
+//参数定义：
+//输入： q:长度为3的队列   x:当前输入  SOS：二阶型矩阵 scale：放大/衰减  Kp Kr：PR控制器参数
+//输出： RR控制器调节量 
+
+/*
+float PRCalc(ButterQueue* q, float x, double* SOS, float scale, float Kp, float Kr, float MAX,float Klim,float* pupLimit)
+{
+	float Rresult = 0;
+	float limit_result=0;
+	float result  = 0;
+	x=x-Klim*(*pupLimit);
+	InButterQueue(q, x);
+
+	Rresult = (1 / SOS[3]) * (Kr * (SOS[0] * q->data[q->rear] + SOS[1] * q->data[(q->rear + 2) % ButterSIZE] + SOS[2] * q->data[(q->rear + 1) % ButterSIZE]) - SOS[4] * q->lastResult - SOS[5] * q->prevResult);
+    q->prevResult = q->lastResult;
+    q->lastResult = Rresult;
+
+    result = Rresult + Kp * (x+Klim*(*pupLimit));
+
+
+    if(result>MAX)
+        limit_result=MAX;
+    else if(result<-MAX)
+        limit_result=-MAX;
+    else
+        limit_result=result;
+
+    *pupLimit=result-limit_result;
+
+    if(result>MAX)
+    {
+        *pupLimit = result - MAX;
+       // result = MAX;
+
+    }
+    if(result<-MAX)
+    {
+        *pupLimit = result + MAX;
+        //result = -MAX;
+    }
+
+	return scale * result;
+
+
+
+    if(result>0)
+    {
+
+    }
+    else
+    {
+    *pupLimit = result+MAX;
+    }
+
+
+    if(abs(result)>MAX)
+    {
+        if(result>0)
+        {
+            result = MAX;
+        }
+        if(result<0)
+        {
+            result = -MAX;
+        }
+    }
+
+}
+*/
+/*
+void PRClear(ButterQueue* q)
+{
+    q->prevResult = 0;
+    q->lastResult = 0;
+}
+*/
+double PRCalc(ButterQueue* q, float x, double* SOS, float scale, float Kp, float Kr, float MAX, float Klim, float* pupLimit)
+{
+    float Rresult = 0;
+//    float limit_result = 0;
+    float result = 0;
+    float Presult = 0;
+    float a = 0;
+    InButterQueue(q, x-Klim * (*pupLimit));
+    //InButterQueue(q, x);
+
+    Presult = Kp * x;
+    a = __divf32(1,SOS[3]);
+    Rresult = a * (Kr * (SOS[0] * q->data[q->rear] + SOS[1] * q->data[(q->rear + 2) % ButterSIZE] + SOS[2] * q->data[(q->rear + 1) % ButterSIZE]) - SOS[4] * q->lastResult - SOS[5] * q->prevResult);
+    q->prevResult = q->lastResult;
+    q->lastResult = Rresult;
+
+    //result = Rresult + Kp * (x + Klim * (*pupLimit));
+    result = Rresult + Presult;
+
+
+    if (result >= MAX)
+    {
+        *pupLimit = result - MAX;
+        result = MAX;
+    }
+    else if (result <= (-MAX))
+    {
+        *pupLimit = result + MAX;
+        result = -MAX;
+    }
+    else
+    {
+        *pupLimit = 0;
+    }
+
+    /*
+    if (result > MAX)
+        limit_result = MAX;
+    else if (result < -MAX)
+        limit_result = -MAX;
+    else
+        limit_result = result;
+
+    *pupLimit = result - limit_result;
+    */
+
+
+
+    /*
+    if(result>0)
+    {
+
+    }
+    else
+    {
+    *pupLimit = result+MAX;
+    }
+    */
+    /*
+        if(result>MAX||-result>MAX)
+        {
+            if(result>0)
+            {
+                result = MAX;
+            }
+            if(result<0)
+            {
+                result = -MAX;
+            }
+        }*/
+        return scale * result;
+}

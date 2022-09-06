@@ -1,0 +1,41 @@
+#include"pid.h"
+
+
+    PID pidI3d={0.05,50,0,0,0,0,0.0001};
+    PID pidI3q={0.05,50,0,0,0,0,0.0001};
+    PID pidI5d={0.05,50,0,0,0,0,0.0001};
+    PID pidI5q={0.05,50,0,0,0,0,0.0001};
+    PID pidVd={0.013,1.3,0,0,0,0,0.0001};
+    PID pidVq={0.013,1.3,0,0,0,0,0.0001};
+    PID pidTheta={0.05,500,0,0,0,0,0.0001};
+    PID pidId={1,0,0,0,0,0,0.0001};
+    PID pidIq={1,0,0,0,0,0,0.0001};
+    PID pidIL={0.01,0,0,0,0,0,0.0001};
+
+double PIDCalc( PID* pp, double NextPoint, double set,double sumMax)//位置式
+{
+    double dError,Error;
+    Error = set - NextPoint;       // 偏差
+    //积分限幅
+    if(pp->SumError>sumMax)
+    {
+        pp->SumError=sumMax;
+    }
+    else
+    {
+    pp->SumError += Error*pp->Ts;
+    }
+    dError = pp->LastError -pp->PrevError; // 当前微分
+    pp->PrevError = pp->LastError;
+    pp->LastError = Error;
+    return (pp->Proportion * Error   // 比例项
+    + pp->Integral * pp->SumError    // 积分项
+    + pp->Derivative * dError        // 微分项
+    );
+}
+
+double PIDCalcInc(PID*pp, double In,double Ref) //增量式PID
+{
+    double error=Ref-In;
+    return pp->Proportion*(error-pp->LastError)+pp->Integral*(error)+pp->Derivative*(error-2*pp->LastError+pp->PrevError);
+}

@@ -1,0 +1,32 @@
+#ifndef __pid_h_
+#define __pid_h_
+
+typedef struct PID {
+
+	double Proportion; // 比例常数 Proportional Const
+
+	double Integral; // 积分常数 Integral Const
+
+	double Derivative; // 微分常数 Derivative Const
+
+	double LastError;
+
+	double SumError;
+
+	double PrevError;
+
+	double Ts;   //积分周期
+} PID;
+
+
+extern PID pidI3d,pidI3q,pidI5d,pidI5q;
+extern PID pidVd,pidVq,pidIL,pidId,pidIq;
+extern PID pidTheta;
+extern float PIDCalc(PID*, float, float, float);
+extern PID pid_Init(PID, float, float, float, float);
+double PIDCalcInc(PID*pp, float, float,float);
+
+
+#endif
+
+

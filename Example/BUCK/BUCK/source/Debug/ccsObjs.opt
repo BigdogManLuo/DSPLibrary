@@ -1,0 +1,1 @@
+"./adc.obj" "./clk.obj" "./filter.obj" "./key.obj" "./main.obj" "./nokia_5110.obj" "./pid.obj" "./pwm.obj" "../lnk_msp430f5438a.cmd" -llibmath.a -l"D:/msp430ware/MSP430Ware_3_80_13_03/iqmathlib/libraries/CCS/MPY32/5xx_6xx/IQmathLib.a" -llibc.a 

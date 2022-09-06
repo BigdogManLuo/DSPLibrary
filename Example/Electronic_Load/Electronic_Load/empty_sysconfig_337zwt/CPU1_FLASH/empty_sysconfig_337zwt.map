@@ -1,0 +1,742 @@
+******************************************************************************
+             TMS320C2000 Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Sat Jul 30 01:39:27 2022
+
+OUTPUT FILE NAME:   <empty_sysconfig_337zwt.out>
+ENTRY POINT SYMBOL: "code_start"  address: 00080000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  RAMM0                 00000123   000002dd  00000000  000002dd  RWIX
+  RAMLS0                00008000   00000800  00000135  000006cb  RWIX
+  RAMLS1                00008800   00000800  00000000  00000800  RWIX
+  RAMLS2                00009000   00000800  00000000  00000800  RWIX
+  RAMLS3                00009800   00000800  00000000  00000800  RWIX
+  RAMLS4                0000a000   00000800  00000000  00000800  RWIX
+  RAMD0                 0000b000   00000800  00000000  00000800  RWIX
+  RAMGS14               0001a000   00001000  00000000  00001000  RWIX
+  RAMGS15               0001b000   00000ff8  00000000  00000ff8  RWIX
+  BEGIN                 00080000   00000002  00000002  00000000  RWIX
+  FLASHA                00080002   00001ffe  00000000  00001ffe  RWIX
+  FLASHB                00082000   00002000  00002000  00000000  RWIX
+  FLASHC                00084000   00002000  00000674  0000198c  RWIX
+  FLASHD                00086000   00002000  00000135  00001ecb  RWIX
+  FLASHE                00088000   00008000  00000000  00008000  RWIX
+  FLASHF                00090000   00008000  00000b03  000074fd  RWIX
+  FLASHG                00098000   00008000  00000000  00008000  RWIX
+  FLASHH                000a0000   00008000  00000000  00008000  RWIX
+  FLASHI                000a8000   00008000  00000000  00008000  RWIX
+  FLASHJ                000b0000   00008000  00000000  00008000  RWIX
+  FLASHK                000b8000   00002000  00000000  00002000  RWIX
+  FLASHL                000ba000   00002000  00000000  00002000  RWIX
+  FLASHM                000bc000   00002000  00000000  00002000  RWIX
+  FLASHN                000be000   00001ff0  000002ca  00001d26  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+PAGE 1:
+  BOOT_RSVD             00000002   00000121  00000000  00000121  RWIX
+  RAMM1                 00000400   000003f8  000003f8  00000000  RWIX
+  RAMLS5                0000a800   00000800  00000202  000005fe  RWIX
+  RAMD1                 0000b800   00000800  00000000  00000800  RWIX
+  RAMGS0                0000c000   00001000  00000000  00001000  RWIX
+  RAMGS1                0000d000   00001000  00000000  00001000  RWIX
+  RAMGS2                0000e000   00001000  00000000  00001000  RWIX
+  RAMGS3                0000f000   00001000  00000000  00001000  RWIX
+  RAMGS4                00010000   00001000  00000000  00001000  RWIX
+  RAMGS5                00011000   00001000  00000000  00001000  RWIX
+  RAMGS6                00012000   00001000  00000000  00001000  RWIX
+  RAMGS7                00013000   00001000  00000000  00001000  RWIX
+  RAMGS8                00014000   00001000  00000000  00001000  RWIX
+  RAMGS9                00015000   00001000  00000000  00001000  RWIX
+  RAMGS10               00016000   00001000  00000000  00001000  RWIX
+  RAMGS11               00017000   00001000  00000000  00001000  RWIX
+  RAMGS12               00018000   00001000  00000000  00001000  RWIX
+  RAMGS13               00019000   00001000  00000000  00001000  RWIX
+  CPU2TOCPU1RAM         0003f800   00000400  00000000  00000400  RWIX
+  CPU1TOCPU2RAM         0003fc00   00000400  00000000  00000400  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+codestart 
+*          0    00080000    00000002     
+                  00080000    00000002     F2837xD_CodeStartBranch.obj (codestart)
+
+.cinit     0    000be000    000002ca     
+                  000be000    00000148     main.obj (.cinit)
+                  000be148    000000f5     main.obj (.cinit:_arccos_lookuptable)
+                  000be23d    0000000f     main.obj (.cinit:_SOS_BandPass)
+                  000be24c    0000000f     main.obj (.cinit:_SOS_PLL)
+                  000be25b    0000000f     main.obj (.cinit:_SOS_PR3)
+                  000be26a    0000000f     main.obj (.cinit:_SOS_PR5)
+                  000be279    0000000f     main.obj (.cinit:_SOS_PR)
+                  000be288    0000000f     main.obj (.cinit:_SOS_lowPass)
+                  000be297    0000000f     device.obj (.cinit)
+                  000be2a6    0000000e     rts2800_fpu32.lib : exit.c.obj (.cinit)
+                  000be2b4    0000000a     PLL.obj (.cinit)
+                  000be2be    00000005     rts2800_fpu32.lib : _lock.c.obj (.cinit:__lock)
+                  000be2c3    00000005                       : _lock.c.obj (.cinit:__unlock)
+                  000be2c8    00000002     --HOLE-- [fill = 0]
+
+.stack     1    00000400    000003f8     UNINITIALIZED
+                  00000400    000003f8     --HOLE--
+
+.reset     0    003fffc0    00000002     DSECT
+                  003fffc0    00000002     rts2800_fpu32.lib : boot28.asm.obj (.reset)
+
+.pinit     0    00082000    00000000     UNINITIALIZED
+
+.TI.ramfunc 
+*          0    00086000    00000135     RUN ADDR = 00008000
+                  00086000    00000043     driverlib_coff.lib : flash.obj (.TI.ramfunc:_Flash_initModule)
+                  00086043    0000002d                        : flash.obj (.TI.ramfunc:_Flash_setBankPowerMode)
+                  00086070    00000026                        : flash.obj (.TI.ramfunc:_Flash_setWaitstates)
+                  00086096    0000001e                        : flash.obj (.TI.ramfunc:_Flash_setPumpPowerMode)
+                  000860b4    0000001a                        : flash.obj (.TI.ramfunc:_Flash_disableCache)
+                  000860ce    0000001a                        : flash.obj (.TI.ramfunc:_Flash_disablePrefetch)
+                  000860e8    00000019                        : flash.obj (.TI.ramfunc:_Flash_enableCache)
+                  00086101    00000019                        : flash.obj (.TI.ramfunc:_Flash_enablePrefetch)
+                  0008611a    00000017                        : flash.obj (.TI.ramfunc:_Flash_enableECC)
+                  00086131    00000004                        : sysctl.obj (.TI.ramfunc)
+
+GETBUFFER 
+*          0    0003f800    00000000     DSECT
+
+GETWRITEIDX 
+*          0    0003f800    00000000     DSECT
+
+PUTREADIDX 
+*          0    0003f800    00000000     DSECT
+
+.text.1    0    00082000    00002000     
+                  00082000    00000a56     main.obj (.text)
+                  00082a56    00000460     main.obj (.text:retain)
+                  00082eb6    00000453     nokia_5110.obj (.text)
+                  00083309    00000403     device.obj (.text)
+                  0008370c    00000215     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_setClock)
+                  00083921    000001ac     filter.obj (.text)
+                  00083acd    00000156     transform.obj (.text)
+                  00083c23    000000e3     pr.obj (.text)
+                  00083d06    000000bd     driverlib_coff.lib : adc.obj (.text:_ADC_setMode)
+                  00083dc3    00000092     PLL.obj (.text)
+                  00083e55    00000091     SOGI.obj (.text)
+                  00083ee6    00000088     rts2800_fpu32.lib : fs_div28.asm.obj (.text)
+                  00083f6e    0000006f     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_selectXTAL)
+                  00083fdd    00000022     rts2800_fpu32.lib : i_div28.asm.obj (.text)
+                  00083fff    00000001                       : startup.c.obj (.text)
+
+.text.2    0    00084000    00000674     
+                  00084000    00000068     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_getDeviceParametric)
+                  00084068    00000065     pid.obj (.text)
+                  000840cd    0000005c     driverlib_coff.lib : spi.obj (.text:_SPI_setConfig)
+                  00084129    00000056     rts2800_fpu32.lib : boot28.asm.obj (.text)
+                  0008417f    00000054     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_selectOscSource)
+                  000841d3    00000052                        : gpio.obj (.text:_GPIO_setPadConfig)
+                  00084225    00000051                        : sysctl.obj (.text:_SysCtl_getClock)
+                  00084276    0000003d                        : interrupt.obj (.text:_Interrupt_initModule)
+                  000842b3    00000038                        : gpio.obj (.text:_GPIO_setMasterCore)
+                  000842eb    00000038                        : gpio.obj (.text:_GPIO_setQualificationMode)
+                  00084323    00000037                        : gpio.obj (.text:_GPIO_setPinConfig)
+                  0008435a    00000034                        : interrupt.obj (.text:_Interrupt_enable)
+                  0008438e    00000033                        : spi.obj (.text:_SPI_setBaudRate)
+                  000843c1    00000031                        : gpio.obj (.text:_GPIO_setDirectionMode)
+                  000843f2    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
+                  0008441b    00000028     driverlib_coff.lib : flash.obj (.text:_Flash_setBankPowerUpDelay)
+                  00084443    00000024                        : sysctl.obj (.text:_CPUTimer_selectClockSource)
+                  00084467    00000024     rts2800_fpu32.lib : cpy_tbl.c.obj (.text)
+                  0008448b    00000020     driverlib_coff.lib : sysctl.obj (.text:_CPUTimer_getTimerOverflowStatus)
+                  000844ab    00000020                        : interrupt.obj (.text:_Interrupt_initVectorTable)
+                  000844cb    0000001f                        : adc.obj (.text:_ADC_isBaseValid)
+                  000844ea    0000001d     rts2800_fpu32.lib : memcpy.c.obj (.text)
+                  00084507    0000001a     driverlib_coff.lib : sysctl.obj (.text:_CPUTimer_isBaseValid)
+                  00084521    0000001a                        : spi.obj (.text:_SPI_isBaseValid)
+                  0008453b    0000001a                        : sysctl.obj (.text:_SysCtl_getLowSpeedClock)
+                  00084555    00000019                        : sysctl.obj (.text:_CPUTimer_startTimer)
+                  0008456e    00000019                        : sysctl.obj (.text:_SysCtl_pollCpuTimer)
+                  00084587    00000012                        : sysctl.obj (.text:_CPUTimer_clearOverflowFlag)
+                  00084599    00000012                        : sysctl.obj (.text:_CPUTimer_disableInterrupt)
+                  000845ab    00000012                        : sysctl.obj (.text:_CPUTimer_setPeriod)
+                  000845bd    00000012                        : sysctl.obj (.text:_CPUTimer_stopTimer)
+                  000845cf    00000012     rts2800_fpu32.lib : args_main.c.obj (.text)
+                  000845e1    00000010     driverlib_coff.lib : flash.obj (.text:_Flash_isCtrlBaseValid)
+                  000845f1    00000010                        : flash.obj (.text:_Flash_isECCBaseValid)
+                  00084601    0000000e                        : gpio.obj (.text:_GPIO_isPinValid)
+                  0008460f    0000000e                        : interrupt.obj (.text:_Interrupt_defaultHandler)
+                  0008461d    0000000d                        : interrupt.obj (.text:_Interrupt_disableMaster)
+                  0008462a    0000000d                        : interrupt.obj (.text:_Interrupt_enableMaster)
+                  00084637    0000000b                        : sysctl.obj (.text:_SysCtl_isMCDClockFailureDetected)
+                  00084642    0000000b     rts2800_fpu32.lib : u_div28.asm.obj (.text)
+                  0008464d    00000009     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_serviceWatchdog)
+                  00084656    00000009     rts2800_fpu32.lib : _lock.c.obj (.text)
+                  0008465f    00000008     F2837xD_CodeStartBranch.obj (.text)
+                  00084667    00000007     driverlib_coff.lib : sysctl.obj (.text:_SysCtl_resetMCD)
+                  0008466e    00000002                        : interrupt.obj (.text:_Interrupt_illegalOperationHandler)
+                  00084670    00000002                        : interrupt.obj (.text:_Interrupt_nmiHandler)
+                  00084672    00000002     rts2800_fpu32.lib : pre_init.c.obj (.text)
+
+.econst    0    00090000    00000b03     
+                  00090000    000002d0     nokia_5110.obj (.econst:_write_chinese)
+                  000902d0    00000228     nokia_5110.obj (.econst:_font6x8)
+                  000904f8    0000012a     main.obj (.econst:.string)
+                  00090622    000000f5     driverlib_coff.lib : sysctl.obj (.econst:.string)
+                  00090717    00000001     --HOLE-- [fill = 0]
+                  00090718    000000f0                        : flash.obj (.econst:.string)
+                  00090808    000000ef                        : gpio.obj (.econst:.string)
+                  000908f7    00000001     --HOLE-- [fill = 0]
+                  000908f8    0000008f     nokia_5110.obj (.econst:.string)
+                  00090987    00000001     --HOLE-- [fill = 0]
+                  00090988    0000007c     driverlib_coff.lib : interrupt.obj (.econst:.string)
+                  00090a04    00000076                        : adc.obj (.econst:.string)
+                  00090a7a    00000076                        : spi.obj (.econst:.string)
+                  00090af0    00000013     device.obj (.econst:.string)
+
+.ebss      1    0000a800    00000202     UNINITIALIZED
+                  0000a800    000000f2     main.obj (.ebss:_arccos_lookuptable)
+                  0000a8f2    0000000c     main.obj (.ebss:_SOS_BandPass)
+                  0000a8fe    00000002     rts2800_fpu32.lib : _lock.c.obj (.ebss:__lock)
+                  0000a900    000000b4     main.obj (.ebss)
+                  0000a9b4    0000000c     main.obj (.ebss:_SOS_PLL)
+                  0000a9c0    0000000c     main.obj (.ebss:_SOS_PR3)
+                  0000a9cc    0000000c     main.obj (.ebss:_SOS_PR5)
+                  0000a9d8    0000000c     main.obj (.ebss:_SOS_PR)
+                  0000a9e4    0000000c     main.obj (.ebss:_SOS_lowPass)
+                  0000a9f0    00000006     device.obj (.ebss)
+                  0000a9f6    00000006     rts2800_fpu32.lib : exit.c.obj (.ebss)
+                  0000a9fc    00000004     PLL.obj (.ebss)
+                  0000aa00    00000002     rts2800_fpu32.lib : _lock.c.obj (.ebss:__unlock)
+
+MODULE SUMMARY
+
+       Module                        code    initialized data   uninitialized data
+       ------                        ----    ----------------   ------------------
+    .\
+       main.obj                      3766    961                494               
+       nokia_5110.obj                1107    1415               0                 
+       filter.obj                    428     0                  0                 
+       transform.obj                 342     0                  0                 
+       pr.obj                        227     0                  0                 
+       PLL.obj                       146     10                 4                 
+       SOGI.obj                      145     0                  0                 
+       pid.obj                       101     0                  0                 
+    +--+-----------------------------+-------+------------------+--------------------+
+       Total:                        6262    2386               498               
+                                                                                  
+    .\device\
+       device.obj                    1027    34                 6                 
+       F2837xD_CodeStartBranch.obj   10      0                  0                 
+    +--+-----------------------------+-------+------------------+--------------------+
+       Total:                        1037    34                 6                 
+                                                                                  
+    D:\CCS\C2000Ware_3_04_00_00_Software\driverlib\f2837xd\driverlib\ccs\Debug\driverlib_coff.lib
+       sysctl.obj                    1190    245                0                 
+       flash.obj                     682     240                0                 
+       gpio.obj                      312     239                0                 
+       adc.obj                       220     118                0                 
+       interrupt.obj                 189     124                0                 
+       spi.obj                       169     118                0                 
+    +--+-----------------------------+-------+------------------+--------------------+
+       Total:                        2762    1084               0                 
+                                                                                  
+    D:\CCS\ccs\tools\compiler\ti-cgt-c2000_20.2.5.LTS\lib\rts2800_fpu32.lib
+       fs_div28.asm.obj              136     0                  0                 
+       boot28.asm.obj                86      0                  0                 
+       exit.c.obj                    41      14                 6                 
+       cpy_tbl.c.obj                 36      0                  0                 
+       i_div28.asm.obj               34      0                  0                 
+       memcpy.c.obj                  29      0                  0                 
+       _lock.c.obj                   9       10                 4                 
+       args_main.c.obj               18      0                  0                 
+       u_div28.asm.obj               11      0                  0                 
+       pre_init.c.obj                2       0                  0                 
+       startup.c.obj                 1       0                  0                 
+    +--+-----------------------------+-------+------------------+--------------------+
+       Total:                        403     24                 10                
+                                                                                  
+       Stack:                        0       0                  1016              
+    +--+-----------------------------+-------+------------------+--------------------+
+       Grand Total:                  10464   3528               1530              
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+0000a800     2a0 (0000a800)     _arccos_lookuptable
+
+0000a8f2     2a3 (0000a8c0)     _SOS_BandPass
+0000a8fe     2a3 (0000a8c0)     __lock
+
+0000a900     2a4 (0000a900)     _index
+0000a901     2a4 (0000a900)     _i
+0000a902     2a4 (0000a900)     _pfFlag
+0000a903     2a4 (0000a900)     _k
+0000a904     2a4 (0000a900)     _shutdown
+0000a905     2a4 (0000a900)     _onceLCD
+0000a906     2a4 (0000a900)     _Iref_p
+0000a908     2a4 (0000a900)     _W_rectifier
+0000a90a     2a4 (0000a900)     _W3_rectifier
+0000a90c     2a4 (0000a900)     _W5_rectifier
+0000a90e     2a4 (0000a900)     _W_inverter
+0000a910     2a4 (0000a900)     _error
+0000a912     2a4 (0000a900)     _PF
+0000a914     2a4 (0000a900)     _result0
+0000a916     2a4 (0000a900)     _result1
+0000a918     2a4 (0000a900)     _result2
+0000a91a     2a4 (0000a900)     _result3
+0000a91c     2a4 (0000a900)     _result4
+0000a91e     2a4 (0000a900)     _V1
+0000a920     2a4 (0000a900)     _V2
+0000a922     2a4 (0000a900)     _V3
+0000a924     2a4 (0000a900)     _V4
+0000a926     2a4 (0000a900)     _V5
+0000a928     2a4 (0000a900)     _Vin
+0000a92a     2a4 (0000a900)     _IL
+0000a92c     2a4 (0000a900)     _Vbus
+0000a92e     2a4 (0000a900)     _IL_out
+0000a930     2a4 (0000a900)     _Vout
+0000a932     2a4 (0000a900)     _Vbus_lowPass
+0000a934     2a4 (0000a900)     _Vin_BandPass
+0000a936     2a4 (0000a900)     _c
+0000a938     2a4 (0000a900)     _ILref
+0000a93a     2a4 (0000a900)     _fi
+0000a93c     2a4 (0000a900)     _overVolt
+0000a93e     2a4 (0000a900)     _overCurrent
+
+0000a940     2a5 (0000a940)     _DAout
+0000a942     2a5 (0000a940)     _scale_BandPass
+0000a944     2a5 (0000a940)     _scale_lowPass
+0000a946     2a5 (0000a940)     _scale_PLL
+0000a948     2a5 (0000a940)     _upLimit
+0000a94a     2a5 (0000a940)     _upLimit_3
+0000a94c     2a5 (0000a940)     _upLimit_5
+0000a94e     2a5 (0000a940)     _qVin
+0000a95a     2a5 (0000a940)     _qVbus
+0000a966     2a5 (0000a940)     _qVin_PLL
+0000a972     2a5 (0000a940)     _qIL
+
+0000a980     2a6 (0000a980)     _qIL_3
+0000a98c     2a6 (0000a980)     _qIL_5
+0000a998     2a6 (0000a980)     _pidTheta
+0000a9a6     2a6 (0000a980)     _pidVbus
+0000a9b4     2a6 (0000a980)     _SOS_PLL
+
+0000a9c0     2a7 (0000a9c0)     _SOS_PR3
+0000a9cc     2a7 (0000a9c0)     _SOS_PR5
+0000a9d8     2a7 (0000a9c0)     _SOS_PR
+0000a9e4     2a7 (0000a9c0)     _SOS_lowPass
+0000a9f0     2a7 (0000a9c0)     _Example_Result
+0000a9f2     2a7 (0000a9c0)     _Example_PassCount
+0000a9f4     2a7 (0000a9c0)     _Example_Fail
+0000a9f6     2a7 (0000a9c0)     ___TI_enable_exit_profile_output
+0000a9f8     2a7 (0000a9c0)     ___TI_cleanup_ptr
+0000a9fa     2a7 (0000a9c0)     ___TI_dtors_ptr
+0000a9fc     2a7 (0000a9c0)     _theta
+0000a9fe     2a7 (0000a9c0)     _w0
+
+0000aa00     2a8 (0000aa00)     __unlock
+
+00090000    2400 (00090000)     _write_chinese
+
+000902d0    240b (000902c0)     _font6x8
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+page  address   name                                      
+----  -------   ----                                      
+abs   ffffffff  .text                                     
+0     000843f2  C$$EXIT                                   
+0     00083ee6  FS$$DIV                                   
+0     00083fdd  I$$DIV                                    
+0     00083fee  I$$MOD                                    
+0     00084642  U$$DIV                                    
+0     00084647  U$$MOD                                    
+0     00083d06  _ADC_setMode                              
+0     0008398b  _AverFilter                               
+0     00083a3a  _ButterWorthFilter                        
+1     0000a940  _DAout                                    
+0     00083580  _Device_bootCPU2                          
+0     0008354f  _Device_configureTMXAnalogTrim            
+0     000833f3  _Device_enableAllPeripherals              
+0     00083539  _Device_enableUnbondedGPIOPullups         
+0     00083516  _Device_enableUnbondedGPIOPullupsFor100Pin
+0     000834ff  _Device_enableUnbondedGPIOPullupsFor176Pin
+0     000833a0  _Device_init                              
+0     000834de  _Device_initGPIO                          
+1     0000a9f4  _Example_Fail                             
+1     0000a9f2  _Example_PassCount                        
+1     0000a9f0  _Example_Result                           
+0     0008370b  _Example_done                             
+0     00083706  _Example_setResultFail                    
+0     00083701  _Example_setResultPass                    
+0     00008000  _Flash_initModule                         
+0     00082758  _GPIO_init                                
+0     000843c1  _GPIO_setDirectionMode                    
+0     000842b3  _GPIO_setMasterCore                       
+0     000841d3  _GPIO_setPadConfig                        
+0     00084323  _GPIO_setPinConfig                        
+0     000842eb  _GPIO_setQualificationMode                
+1     0000a92a  _IL                                       
+1     0000a92e  _IL_out                                   
+1     0000a938  _ILref                                    
+0     00083a25  _InButterQueue                            
+0     0008394e  _InQueue                                  
+0     00083a03  _InitButterQueue                          
+0     00083921  _InitQueue                                
+0     0008435a  _Interrupt_enable                         
+0     00084276  _Interrupt_initModule                     
+0     000844ab  _Interrupt_initVectorTable                
+1     0000a906  _Iref_p                                   
+0     00082f86  _LCD_GPIO_Init                            
+0     0008313c  _LCD_ShowChar                             
+0     00083214  _LCD_ShowFloat                            
+0     00083157  _LCD_ShowNum                              
+0     0008318d  _LCD_ShowSetFloat                         
+0     00083257  _LCD_ShowString                           
+0     00083085  _LCD_clear                                
+0     00083049  _LCD_init                                 
+0     00083147  _LCD_mypow                                
+0     0008309e  _LCD_set_XY                               
+0     00083121  _LCD_write_byte                           
+0     000830b4  _LCD_write_char                           
+0     000830e0  _LCD_write_chinese_string                 
+0     000830ce  _LCD_write_english_string                 
+0     0008396b  _OutQueue                                 
+1     0000a912  _PF                                       
+0     00084068  _PIDCalc                                  
+0     00083c23  _PRCalc                                   
+0     00086135  _RamfuncsLoadEnd                          
+abs   00000135  _RamfuncsLoadSize                         
+0     00086000  _RamfuncsLoadStart                        
+0     00008135  _RamfuncsRunEnd                           
+abs   00000135  _RamfuncsRunSize                          
+0     00008000  _RamfuncsRunStart                         
+0     00083e55  _SOGICalcQ                                
+1     0000a8f2  _SOS_BandPass                             
+1     0000a9b4  _SOS_PLL                                  
+1     0000a9d8  _SOS_PR                                   
+1     0000a9c0  _SOS_PR3                                  
+1     0000a9cc  _SOS_PR5                                  
+1     0000a9e4  _SOS_lowPass                              
+0     00083007  _SPI_init                                 
+0     0008438e  _SPI_setBaudRate                          
+0     000840cd  _SPI_setConfig                            
+0     00008131  _SysCtl_delay                             
+0     00084225  _SysCtl_getClock                          
+0     00084000  _SysCtl_getDeviceParametric               
+0     0008453b  _SysCtl_getLowSpeedClock                  
+0     0008417f  _SysCtl_selectOscSource                   
+0     00083f6e  _SysCtl_selectXTAL                        
+0     0008370c  _SysCtl_setClock                          
+1     0000a91e  _V1                                       
+1     0000a920  _V2                                       
+1     0000a922  _V3                                       
+1     0000a924  _V4                                       
+1     0000a926  _V5                                       
+1     0000a92c  _Vbus                                     
+1     0000a932  _Vbus_lowPass                             
+1     0000a928  _Vin                                      
+1     0000a934  _Vin_BandPass                             
+1     0000a930  _Vout                                     
+1     0000a90a  _W3_rectifier                             
+1     0000a90c  _W5_rectifier                             
+1     0000a90e  _W_inverter                               
+1     0000a908  _W_rectifier                              
+1     000007f8  __STACK_END                               
+abs   000003f8  __STACK_SIZE                              
+1     0000a9f8  ___TI_cleanup_ptr                         
+1     0000a9fa  ___TI_dtors_ptr                           
+1     0000a9f6  ___TI_enable_exit_profile_output          
+abs   ffffffff  ___TI_pprof_out_hndl                      
+abs   ffffffff  ___TI_prof_data_size                      
+abs   ffffffff  ___TI_prof_data_start                     
+abs   ffffffff  ___binit__                                
+abs   ffffffff  ___c_args__                               
+0     000be000  ___cinit__                                
+0     000836fa  ___error__                                
+abs   ffffffff  ___etext__                                
+abs   ffffffff  ___pinit__                                
+abs   ffffffff  ___text__                                 
+0     000845cf  __args_main                               
+1     0000a8fe  __lock                                    
+0     0008465e  __nop                                     
+0     0008465a  __register_lock                           
+0     00084656  __register_unlock                         
+1     00000400  __stack                                   
+0     00083fff  __system_post_cinit                       
+0     00084672  __system_pre_init                         
+1     0000aa00  __unlock                                  
+0     000843f2  _abort                                    
+0     00082a56  _adcA1ISR                                 
+1     0000a800  _arccos_lookuptable                       
+0     00083042  _board_init                               
+1     0000a936  _c                                        
+0     00084129  _c_int00                                  
+0     00083b13  _clarkTransformation                      
+0     00082837  _configureADC                             
+0     00082741  _configureDAC                             
+0     00084467  _copy_in                                  
+0     00082afe  _epwm1ISR                                 
+1     0000a910  _error                                    
+0     000843f4  _exit                                     
+1     0000a93a  _fi                                       
+0     000902d0  _font6x8                                  
+1     0000a901  _i                                        
+1     0000a900  _index                                    
+0     00082a07  _initADCSOC                               
+0     0008284f  _initEPWM                                 
+0     00083b50  _invClarkTransformation                   
+0     00083bd9  _invParkTransformation                    
+1     0000a903  _k                                        
+0     00082670  _keyboard                                 
+0     00083acd  _linePhaseTransformation                  
+0     00082590  _main                                     
+0     000844ea  _memcpy                                   
+1     0000a905  _onceLCD                                  
+1     0000a93e  _overCurrent                              
+1     0000a93c  _overVolt                                 
+0     00083b8e  _parkTransformation                       
+1     0000a902  _pfFlag                                   
+1     0000a998  _pidTheta                                 
+1     0000a9a6  _pidVbus                                  
+0     00082fce  _pinMux_init                              
+1     0000a972  _qIL                                      
+1     0000a980  _qIL_3                                    
+1     0000a98c  _qIL_5                                    
+1     0000a95a  _qVbus                                    
+1     0000a94e  _qVin                                     
+1     0000a966  _qVin_PLL                                 
+1     0000a914  _result0                                  
+1     0000a916  _result1                                  
+1     0000a918  _result2                                  
+1     0000a91a  _result3                                  
+1     0000a91c  _result4                                  
+1     0000a942  _scale_BandPass                           
+1     0000a946  _scale_PLL                                
+1     0000a944  _scale_lowPass                            
+0     00083269  _show_adc_result                          
+0     00083293  _show_statusofLoad                        
+0     000832de  _show_warning1                            
+0     000832eb  _show_warning2                            
+0     000832fa  _show_warning3                            
+1     0000a904  _shutdown                                 
+0     00083dfe  _singlePhasePLLCalc                       
+1     0000a9fc  _theta                                    
+0     00083dc3  _threePhasePLLCalc                        
+1     0000a948  _upLimit                                  
+1     0000a94a  _upLimit_3                                
+1     0000a94c  _upLimit_5                                
+1     0000a9fe  _w0                                       
+0     00090000  _write_chinese                            
+abs   ffffffff  binit                                     
+0     000be000  cinit                                     
+0     00080000  code_start                                
+abs   ffffffff  etext                                     
+abs   ffffffff  pinit                                     
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+page  address   name                                      
+----  -------   ----                                      
+0     00008000  _Flash_initModule                         
+0     00008000  _RamfuncsRunStart                         
+0     00008131  _SysCtl_delay                             
+0     00008135  _RamfuncsRunEnd                           
+0     00080000  code_start                                
+0     00082590  _main                                     
+0     00082670  _keyboard                                 
+0     00082741  _configureDAC                             
+0     00082758  _GPIO_init                                
+0     00082837  _configureADC                             
+0     0008284f  _initEPWM                                 
+0     00082a07  _initADCSOC                               
+0     00082a56  _adcA1ISR                                 
+0     00082afe  _epwm1ISR                                 
+0     00082f86  _LCD_GPIO_Init                            
+0     00082fce  _pinMux_init                              
+0     00083007  _SPI_init                                 
+0     00083042  _board_init                               
+0     00083049  _LCD_init                                 
+0     00083085  _LCD_clear                                
+0     0008309e  _LCD_set_XY                               
+0     000830b4  _LCD_write_char                           
+0     000830ce  _LCD_write_english_string                 
+0     000830e0  _LCD_write_chinese_string                 
+0     00083121  _LCD_write_byte                           
+0     0008313c  _LCD_ShowChar                             
+0     00083147  _LCD_mypow                                
+0     00083157  _LCD_ShowNum                              
+0     0008318d  _LCD_ShowSetFloat                         
+0     00083214  _LCD_ShowFloat                            
+0     00083257  _LCD_ShowString                           
+0     00083269  _show_adc_result                          
+0     00083293  _show_statusofLoad                        
+0     000832de  _show_warning1                            
+0     000832eb  _show_warning2                            
+0     000832fa  _show_warning3                            
+0     000833a0  _Device_init                              
+0     000833f3  _Device_enableAllPeripherals              
+0     000834de  _Device_initGPIO                          
+0     000834ff  _Device_enableUnbondedGPIOPullupsFor176Pin
+0     00083516  _Device_enableUnbondedGPIOPullupsFor100Pin
+0     00083539  _Device_enableUnbondedGPIOPullups         
+0     0008354f  _Device_configureTMXAnalogTrim            
+0     00083580  _Device_bootCPU2                          
+0     000836fa  ___error__                                
+0     00083701  _Example_setResultPass                    
+0     00083706  _Example_setResultFail                    
+0     0008370b  _Example_done                             
+0     0008370c  _SysCtl_setClock                          
+0     00083921  _InitQueue                                
+0     0008394e  _InQueue                                  
+0     0008396b  _OutQueue                                 
+0     0008398b  _AverFilter                               
+0     00083a03  _InitButterQueue                          
+0     00083a25  _InButterQueue                            
+0     00083a3a  _ButterWorthFilter                        
+0     00083acd  _linePhaseTransformation                  
+0     00083b13  _clarkTransformation                      
+0     00083b50  _invClarkTransformation                   
+0     00083b8e  _parkTransformation                       
+0     00083bd9  _invParkTransformation                    
+0     00083c23  _PRCalc                                   
+0     00083d06  _ADC_setMode                              
+0     00083dc3  _threePhasePLLCalc                        
+0     00083dfe  _singlePhasePLLCalc                       
+0     00083e55  _SOGICalcQ                                
+0     00083ee6  FS$$DIV                                   
+0     00083f6e  _SysCtl_selectXTAL                        
+0     00083fdd  I$$DIV                                    
+0     00083fee  I$$MOD                                    
+0     00083fff  __system_post_cinit                       
+0     00084000  _SysCtl_getDeviceParametric               
+0     00084068  _PIDCalc                                  
+0     000840cd  _SPI_setConfig                            
+0     00084129  _c_int00                                  
+0     0008417f  _SysCtl_selectOscSource                   
+0     000841d3  _GPIO_setPadConfig                        
+0     00084225  _SysCtl_getClock                          
+0     00084276  _Interrupt_initModule                     
+0     000842b3  _GPIO_setMasterCore                       
+0     000842eb  _GPIO_setQualificationMode                
+0     00084323  _GPIO_setPinConfig                        
+0     0008435a  _Interrupt_enable                         
+0     0008438e  _SPI_setBaudRate                          
+0     000843c1  _GPIO_setDirectionMode                    
+0     000843f2  C$$EXIT                                   
+0     000843f2  _abort                                    
+0     000843f4  _exit                                     
+0     00084467  _copy_in                                  
+0     000844ab  _Interrupt_initVectorTable                
+0     000844ea  _memcpy                                   
+0     0008453b  _SysCtl_getLowSpeedClock                  
+0     000845cf  __args_main                               
+0     00084642  U$$DIV                                    
+0     00084647  U$$MOD                                    
+0     00084656  __register_unlock                         
+0     0008465a  __register_lock                           
+0     0008465e  __nop                                     
+0     00084672  __system_pre_init                         
+0     00086000  _RamfuncsLoadStart                        
+0     00086135  _RamfuncsLoadEnd                          
+0     00090000  _write_chinese                            
+0     000902d0  _font6x8                                  
+0     000be000  ___cinit__                                
+0     000be000  cinit                                     
+1     00000400  __stack                                   
+1     000007f8  __STACK_END                               
+1     0000a800  _arccos_lookuptable                       
+1     0000a8f2  _SOS_BandPass                             
+1     0000a8fe  __lock                                    
+1     0000a900  _index                                    
+1     0000a901  _i                                        
+1     0000a902  _pfFlag                                   
+1     0000a903  _k                                        
+1     0000a904  _shutdown                                 
+1     0000a905  _onceLCD                                  
+1     0000a906  _Iref_p                                   
+1     0000a908  _W_rectifier                              
+1     0000a90a  _W3_rectifier                             
+1     0000a90c  _W5_rectifier                             
+1     0000a90e  _W_inverter                               
+1     0000a910  _error                                    
+1     0000a912  _PF                                       
+1     0000a914  _result0                                  
+1     0000a916  _result1                                  
+1     0000a918  _result2                                  
+1     0000a91a  _result3                                  
+1     0000a91c  _result4                                  
+1     0000a91e  _V1                                       
+1     0000a920  _V2                                       
+1     0000a922  _V3                                       
+1     0000a924  _V4                                       
+1     0000a926  _V5                                       
+1     0000a928  _Vin                                      
+1     0000a92a  _IL                                       
+1     0000a92c  _Vbus                                     
+1     0000a92e  _IL_out                                   
+1     0000a930  _Vout                                     
+1     0000a932  _Vbus_lowPass                             
+1     0000a934  _Vin_BandPass                             
+1     0000a936  _c                                        
+1     0000a938  _ILref                                    
+1     0000a93a  _fi                                       
+1     0000a93c  _overVolt                                 
+1     0000a93e  _overCurrent                              
+1     0000a940  _DAout                                    
+1     0000a942  _scale_BandPass                           
+1     0000a944  _scale_lowPass                            
+1     0000a946  _scale_PLL                                
+1     0000a948  _upLimit                                  
+1     0000a94a  _upLimit_3                                
+1     0000a94c  _upLimit_5                                
+1     0000a94e  _qVin                                     
+1     0000a95a  _qVbus                                    
+1     0000a966  _qVin_PLL                                 
+1     0000a972  _qIL                                      
+1     0000a980  _qIL_3                                    
+1     0000a98c  _qIL_5                                    
+1     0000a998  _pidTheta                                 
+1     0000a9a6  _pidVbus                                  
+1     0000a9b4  _SOS_PLL                                  
+1     0000a9c0  _SOS_PR3                                  
+1     0000a9cc  _SOS_PR5                                  
+1     0000a9d8  _SOS_PR                                   
+1     0000a9e4  _SOS_lowPass                              
+1     0000a9f0  _Example_Result                           
+1     0000a9f2  _Example_PassCount                        
+1     0000a9f4  _Example_Fail                             
+1     0000a9f6  ___TI_enable_exit_profile_output          
+1     0000a9f8  ___TI_cleanup_ptr                         
+1     0000a9fa  ___TI_dtors_ptr                           
+1     0000a9fc  _theta                                    
+1     0000a9fe  _w0                                       
+1     0000aa00  __unlock                                  
+abs   00000135  _RamfuncsLoadSize                         
+abs   00000135  _RamfuncsRunSize                          
+abs   000003f8  __STACK_SIZE                              
+abs   ffffffff  .text                                     
+abs   ffffffff  ___TI_pprof_out_hndl                      
+abs   ffffffff  ___TI_prof_data_size                      
+abs   ffffffff  ___TI_prof_data_start                     
+abs   ffffffff  ___binit__                                
+abs   ffffffff  ___c_args__                               
+abs   ffffffff  ___etext__                                
+abs   ffffffff  ___pinit__                                
+abs   ffffffff  ___text__                                 
+abs   ffffffff  binit                                     
+abs   ffffffff  etext                                     
+abs   ffffffff  pinit                                     
+
+[189 symbols]

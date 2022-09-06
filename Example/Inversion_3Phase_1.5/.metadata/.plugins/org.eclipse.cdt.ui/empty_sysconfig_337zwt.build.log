@@ -1,0 +1,169 @@
+
+**** Build of configuration CPU1_RAM for project empty_sysconfig_337zwt ****
+
+"D:\\CCS\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+Building file: "../pll.c"
+Invoking: C2000 Compiler
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/device" --include_path="D:/CCS/ccs/tools/compiler/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib" --include_path="D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --preinclude="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/nokia_5110.h" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="pll.d_raw" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/CPU1_RAM/syscfg"  "../pll.c"
+Finished building: "../pll.c"
+ 
+Building file: "../pid.c"
+Invoking: C2000 Compiler
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/device" --include_path="D:/CCS/ccs/tools/compiler/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib" --include_path="D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --preinclude="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/nokia_5110.h" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="pid.d_raw" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/CPU1_RAM/syscfg"  "../pid.c"
+"../pid.c", line 12 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 12 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 12 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 12 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 14 (col. 18): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 15 (col. 16): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 16 (col. 18): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 17 (col. 9): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 18 (col. 17): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 19 (col. 17): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 20 (col. 16): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 21 (col. 10): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 21 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 21 (col. 12): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 22 (col. 10): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 22 (col. 12): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 22 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 23 (col. 10): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 27 (col. 8): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 27 (col. 8): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 27 (col. 8): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 30 (col. 11): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 30 (col. 17): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 31 (col. 18): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 32 (col. 12): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 32 (col. 28): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 33 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 34 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 35 (col. 17): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 37 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 36 (col. 5): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 35 (col. 34): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 36 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../pid.c", line 37 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+Finished building: "../pid.c"
+ 
+Building file: "../main.c"
+Invoking: C2000 Compiler
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/device" --include_path="D:/CCS/ccs/tools/compiler/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib" --include_path="D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --preinclude="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/nokia_5110.h" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw" --include_path="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/CPU1_RAM/syscfg"  "../main.c"
+"../main.c", line 108 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 108 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 117 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 117 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 47): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 44): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 34): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 535 (col. 27): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 47): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 44): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 34): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 536 (col. 27): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 47): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 44): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 34): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 537 (col. 27): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 45): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 23): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 42): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 32): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 538 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 46): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 24): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 43): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 33): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 539 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 46): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 24): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 43): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 33): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 540 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 14): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 46): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 24): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 43): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 33): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 541 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 572 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 572 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 572 (col. 35): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 572 (col. 28): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 573 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 573 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 573 (col. 35): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 573 (col. 28): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 574 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 574 (col. 25): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 574 (col. 35): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 574 (col. 28): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 11): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 17): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 15): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 16): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 18): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 583 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 586 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 586 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 587 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 587 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 588 (col. 20): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 588 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 599 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 599 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 599 (col. 19): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 606 (col. 24): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 606 (col. 28): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 606 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 617 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 617 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 617 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 617 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 618 (col. 22): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 618 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 618 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 618 (col. 30): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 626 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 627 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 628 (col. 26): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 630 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 630 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 631 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 631 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 632 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 632 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 634 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 634 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 635 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 635 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 636 (col. 29): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 636 (col. 50): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 639 (col. 92): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 639 (col. 73): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 640 (col. 92): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 640 (col. 73): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 641 (col. 92): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 641 (col. 73): advice #3195-D: (Performance) EABI double precision is 64-bits as opposed to 32-bits for COFF. Consider changing doubles to floats for improved performance in FPU32-mode.
+"../main.c", line 643 (col. 22): advice #2615-D: (Performance) Use --fp_mode=relaxed to enable TMU hardware support for FP division.
+Finished building: "../main.c"
+ 
+Building target: "empty_sysconfig_337zwt.out"
+Invoking: C2000 Linker
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --preinclude="D:/CCS/workSpace/DSP/PLL/empty_sysconfig_337zwt/nokia_5110.h" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"empty_sysconfig_337zwt.map" --heap_size=0x200 --stack_size=0x3F8 --warn_sections -i"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/lib" -i"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --reread_libs --define=RAM --diag_wrap=off --display_error_number --xml_link_info="empty_sysconfig_337zwt_linkInfo.xml" --entry_point=code_start --rom_model -o "empty_sysconfig_337zwt.out" "./syscfg/board.obj" "./main.obj" "./nokia_5110.obj" "./pid.obj" "./pll.obj" "./protect.obj" "./transform.obj" "./device/F2837xD_CodeStartBranch.obj" "./device/device.obj" "../2837xD_RAM_lnk_cpu1.cmd" "D:/CCS/ccs/tools/compiler/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib"  -llibc.a 
+<Linking>
+Finished building target: "empty_sysconfig_337zwt.out"
+ 
+
+**** Build Finished ****

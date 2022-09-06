@@ -1,0 +1,277 @@
+#include <msp430.h>
+#include "nokia_5110.h"
+#include "adc.h"
+#include "pwm.h"
+#include "clk.h"
+#include "key.h"
+#include "pid.h"
+
+#define CPU_F ((double)24000000)
+#define delay_us(x) __delay_cycles((long)(CPU_F*(double)x/1000000.0))
+#define delay_ms(x) __delay_cycles((long)(CPU_F*(double)x/1000.0))
+
+/*              全局变量的定义部分                                  */
+
+int onceLCD=0;//当切换到保护状态的时候清零一次LCD显示OFF
+int flesh=0;//计数到一定程度刷新LCD
+#define maxIin 2  //最大电流
+#define maxVin 30 //最大输入电压
+#define minVin 12 //最小输入电压
+#define maxVout 10 //最大输出电压
+#define minVout 5   //最小输出电压
+double Vref=5; //设定的电压
+double Iref=1.5;//设定输出电流
+
+/*****************AD采样****************************/
+#define K 0.185 //ACS712系数
+#define _K 5.4051 //1/K的值
+#define atten_Vout 52  //输出电压采样时的衰减系数
+#define atten_Vin  52  //输入电压采样时的衰减系数
+#define atten_hall 2
+//霍尔电压采样时的衰减系数
+const double maxVhall =  (2.48-K*maxIin)*atten_hall;//过流的霍尔电压参考
+int i=0;//索引，将10个采样结果输入adResult数组
+double adResult_Vin[10] = {0} ; //连续存放10个输入电压的采样结果
+double adResult_Vhall[10] = {0} ;//连续存放10个霍尔电压的采样结果
+double adResult_Vout[10]={0};//连续存放10个输出电压的采样结果
+double A0=0;
+double A1=0;
+double A2=0;
+int flag=0; //AD采样是否完成
+double Vout=0;
+double Vin=0;
+double Vhall=0;
+double Iout=0;
+
+
+/*****************过压欠压过流保护****************消抖与迟滞比较************************/
+
+int flag_sdmit=0;  //是否要进入迟滞比较状态
+int state_flag = 0;//是否为过压欠压状态
+int last_state_flag=0;//储存上一次的输入电压状态，判断是否需要刷新屏幕
+
+/**********************************输出电压采样取平均值 ******************************/
+int k=0; //用于计算平均值的索引
+/*********************************PID控制****************************************/
+PID pid_Vout;   //输出电压的PID环
+PID pid_Iout;   //输出电流的PID环
+double errorD=0;//输出的占空比变量
+
+int Switch(double averVin,double averVhall,double Vmax,double Vmin,double max_Vhall)
+{
+    if(averVin>= Vmax)//过压
+    {
+        return 1;
+    }
+    else if(averVin<=Vmin)//欠压
+    {
+        return 2;
+    }
+    else if(averVhall>=max_Vhall)//过流
+    {
+        return 3;
+    }
+    else
+    {
+       return 0;
+    }
+}
+
+
+
+
+
+//******************************************************************//
+//                                                                  //
+//                                                                  //
+//                                                                  //
+//                                                                  //
+//
+//  main.c
+//                                                                  //
+//                                                                  //
+//                                                                  //
+//                                                                  //
+//******************************************************************//
+
+void main(void)
+
+
+{
+  WDTCTL = WDTPW + WDTHOLD;
+  P7DIR|=BIT3; P7OUT|=BIT3;//标志位
+  SetVcoreUp(PMMCOREV_1);  //1.55V
+  SetVcoreUp(PMMCOREV_2); //1.75V
+  clk_Init();
+  LCD_init();
+  key_Init();
+  adc_Init();
+  TIMER0_A0_Init();
+  _EINT();
+  P3DIR|=BIT1;
+  P3OUT&=~BIT1;
+  P6DIR|=BIT7;
+  P6OUT&=~BIT7;
+
+  /**************PID参数初始化****************/
+  PID pid_Vout=pid_Init(pid_Vout,0.02,0.002,0,0.1);
+  PID *pVout=&pid_Vout;
+
+
+  while(1)
+  {
+      Vout=A0*0.0006105*atten_Vout;
+      show_adc_result(Vref,averVout);
+      delay_ms(500);
+  }
+
+
+/*
+  while(1)
+  {
+      protect:
+     while(P7OUT&BIT3)//如果P7.3输出高电平，则代表不输出
+   {
+         if(onceLCD==1)
+         {
+             LCD_clear();
+         }
+        errorD=0;
+        pwm_out(0);
+        LCD_write_english_string(1,1,"OFF");
+        onceLCD=0;
+    }
+
+     //AD转换
+     averVout=A0*0.0006105*atten_Vout;
+     averVin=A1*0.0006105*atten_Vin;
+     averVhall=A2*0.0006105*atten_hall;
+     averI=_K*(averVhall-2.5);
+
+      if(flag_sdmit==1)//如果之前已经过压或者欠压了
+      {
+          state_flag=Switch(averVin,averVhall,maxVin-1,minVin+1,maxVhall);//状态为迟滞比较的状态
+      }
+      else  //如果之前没有
+      {
+          state_flag=Switch(averVin,averVhall,maxVin,minVin,maxVhall);
+      }
+       if(last_state_flag!=state_flag)//如果状态改变了就清理一下屏幕
+       {
+           LCD_clear();
+       }
+
+      switch(state_flag)
+    {
+    case 0://如果没有欠压过压
+       flag_sdmit=0;//如果之前是过压欠压的状态，此代表状态恢复正常了
+        errorD=PIDCalc(pVout,averVout,Vref);//pid的计算   此处把pid_Vout改成pid_Iout,averVout改成averI，set_volt改成set_current就是恒流
+        pwm_out(errorD);
+        if(flesh==50)
+        {
+        show_adc_result(Vref, averVout);
+        flesh=0;
+        }
+        flesh++;
+        P6OUT^=BIT7;
+        break;
+    case 1: //如果是进入了过压状态
+        errorD=0;
+        pwm_out(0);
+        show_warning1();
+        flag_sdmit=1;
+        break;
+    case 2://如果是进入了欠压的状态
+        errorD=0;
+        pwm_out(0);
+        show_warning2();
+        flag_sdmit=1;
+    break;
+    case 3://如果过流了
+         P7OUT&=~BIT3;//关闭使能
+         goto protect;
+    default:break;
+    }
+
+    last_state_flag=state_flag;//更新状态
+    flag=0;
+
+  }//while(1)
+*/
+
+
+}//main
+
+#pragma vector=ADC12_VECTOR
+__interrupt void ADC12_ISR(void)
+{     P6OUT|=BIT5;
+    switch(__even_in_range(ADC12IV,34))
+    {
+    case 0:break;
+    case 2:break;
+    case 4:break;
+    case 6:break;
+    case 8:break;
+    case 10:
+     A0=(double)(ADC12MEM0);
+     A1=(double)(ADC12MEM1);
+     A2=(double)(ADC12MEM2);
+     P6OUT&=~BIT5;
+     P6OUT^=BIT7;
+    //__bic_SR_register_on_exit(LPM0_bits); //退出低功耗模式0
+    //6.0采集输入电压，6.1采集输出电压，6.2采集霍尔电压
+     break;
+    case 12:break;
+    case 14:break;
+    case 16:break;
+    case 18:break;
+    case 20:break;
+    case 22:break;
+    case 24:break;
+    case 26:break;
+    case 28:break;
+    case 30:break;
+    case 32:break;
+    case 34:break;
+    default:break;
+    }
+}
+
+#pragma vector =PORT2_VECTOR
+__interrupt void Port_2(void)
+{
+    if(P2IFG&BIT7)
+    {
+        delay_us(2);
+        while(!(P2IN&BIT7));
+        P7OUT^=BIT3;
+        onceLCD=1;//代表程序有输出
+    }
+    if(P2IFG&BIT0)
+    {
+        delay_us(2);
+        while(!(P2IN&BIT0));
+        set_volt+=0.1;
+        if(set_volt>=maxVout)
+        {set_volt = maxVout;}
+    }
+    if(P2IFG&BIT4)
+    {
+        delay_us(2);
+        while(!(P2IN&BIT4));
+        set_volt-=0.1;
+        if(set_volt<=minVout)
+        {set_volt = minVout;}
+    }
+   P2IFG &=~(BIT0+BIT4+BIT7);
+}
+
+
+#pragma vector=TIMER0_A0_VECTOR
+__interrupt void Calculate(void)
+{
+    delay_us(10);
+    P3OUT^=BIT1;
+   ADC12CTL0|=ADC12SC;
+}
+

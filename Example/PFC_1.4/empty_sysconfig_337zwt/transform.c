@@ -1,0 +1,76 @@
+#include "transform.h"
+#include "math.h"
+
+float f = 50;
+
+
+float K =  0;
+//Phase3 I_3Phase={0,0,0};
+Phase3 V_3Phase={0,0,0};
+Phase2 I_2Phase={0,0};
+Phase2 p2refVolt={0,0};
+Phase2 p2refCurrent={0,0};
+Phase3 p3refVolt={0,0,0};
+Phase3 p3refCurrent={0,0,0};
+Phase2 dutyRate_2Phase={0,0};
+Phase3 dutyRate_3Phase={0,0,0};
+Phase2 W_2Phase={0,0};
+Phase3 W_3Phase={0,0,0};
+Phase3 IL_3Phase={0,0,0};
+Phase2 IL_2Phase={0,0};
+Phase3 Vs_3Phase={0,0,0};
+Phase2 Vs_2Phase={0,0};
+dq Vs_dq={0,0};
+dq IL_dq={0,0};
+dq V_dq={0,0};
+dq I_dq={0,0};
+dq W_dq={0,0};
+dq dutyRate_dq={0,0};
+
+Phase2 clarkTransformation(Phase3 V)   //3/2变换
+{
+    float alfa, beta;
+    alfa = 0.6667 * (V.a - 0.5 * V.b - 0.5 * V.c);
+    beta = 0.57735 * (V.b - V.c);  //0.57735= 三分之根号三
+    struct Phase2 temp;
+    temp.alfa = alfa;
+    temp.beta = beta;
+    return temp;
+}
+
+ Phase3 invClarkTransformation(Phase2 V)   //2/3变换
+{
+    float a, b, c;
+    a = V.alfa;
+    b = (-0.5) * V.alfa + 0.866 * V.beta;
+    c = (-0.5) * V.alfa - 0.866 * V.beta;
+    struct Phase3 temp;
+    temp.a = a;
+    temp.b = b;
+    temp.c = c;
+    return temp;
+}
+
+  dq parkTransformation(Phase2 V,float theta)
+  {
+      float d,q;
+      d=__cos(theta)*V.alfa+__sin(theta)*V.beta;
+      q=(-__sin(theta))*V.alfa+__cos(theta)*V.beta;
+      dq temp;
+      temp.d=d;
+      temp.q=q;
+      return temp;    //0.00278
+  }
+
+  Phase2 invParkTransformation(dq V,float theta)
+  {
+      float alfa,beta;
+      alfa=__cos(theta)*V.d-__sin(theta)*V.q;
+      beta=__sin(theta)*V.d+__cos(theta)*V.q;
+      Phase2 temp;
+      temp.alfa=alfa;
+      temp.beta=beta;
+      return temp;
+  }
+
+

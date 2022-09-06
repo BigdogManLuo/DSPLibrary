@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;empty_sysconfig_337zwt/pr.cpp&apos; to &apos;pr.c&apos;" description="Rename resource &apos;pr.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="pr.cpp" name="pr.c" stamp="1635766162528" updateReferences="true"/>
+</session>

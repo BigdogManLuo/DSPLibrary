@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;empty_sysconfig_337zwt/reference.h&apos;" deleteContents="false" description="Delete resource &apos;empty_sysconfig_337zwt/reference.h&apos;" element1="/empty_sysconfig_337zwt/reference.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1631879791651"/>
+</session>

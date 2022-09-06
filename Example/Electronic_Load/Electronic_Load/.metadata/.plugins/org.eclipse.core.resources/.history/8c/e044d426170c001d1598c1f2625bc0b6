@@ -1,0 +1,60 @@
+#include"filter.h"
+#include<stdio.h>
+#include"pr.h"
+#include<math.h>
+
+#define pi 3.14159
+//鍒濆鍖朠R鎺у埗鍣ㄥ弬鏁�
+ButterQueue qVout={{0,0,0},0,0,0};
+double SOS_PR[6]={1.22487525234486,0,-1.22487525234486,1000,-1901.34877213705,997.55024949531};  
+//double SOS_PR[6]={1.25616925921,0,-1.25616925921,10000,-19987.62173119,9997.48766148};//10k
+double scale_PR=1;
+float upLimit=0;
+/*
+int main()
+{
+    printf("hello,world!\n");
+    //system("pause"); 
+    
+    //PR鎺у埗鍣ㄩ槦鍒楁寚閽堝垵濮嬪寲
+    ButterQueue* pVout=&qVout;
+    float* pUpLimit=&upLimit;
+    //淇″彿瀹氫箟
+    float Vin=40;
+    float Vref=0;
+    float f=50;
+    float Ts=0.001;
+    float Vout=0;
+    float error=0;
+    float dutyRate=0;
+    //鏂囦欢鎸囬拡
+     FILE *p = fopen("data.txt", "w");
+    //鎵撳紑鏂囦欢
+    if(p == NULL)
+    {
+        printf("open error!\n");
+        return 0;
+    }
+
+    //娴嬭瘯PR鎺у埗鍣�
+    for(int i=0;i<=1500;i++)
+    {
+        //鍙傝�冨彉鍖�
+        Vref=10*sin(2*pi*f*i*Ts);
+        
+        //PR鎺у埗
+        error=(Vref-Vout);
+        dutyRate=PRCalc(pVout,error,SOS_PR,scale_PR,0.01,2,0, 0, pUpLimit);
+
+        //鍚屾BUCK鏁板妯″瀷
+        Vout=dutyRate*Vin;
+
+        //鍐欐枃浠�
+        fprintf(p,"%f",Vref);
+        fprintf(p," ");
+        fprintf(p,"%f",Vout);
+        fprintf(p,"\n");
+    }
+    
+}
+*/

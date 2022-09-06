@@ -1,0 +1,308 @@
+[
+  {
+    "text": "Demos",
+    "type": "folder",
+    "numChildren": 6,
+    "numChildrenLocal": 6,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/Demos&removeoffline=true",
+    "overviewImage": "D:\\CCS\\C2000Ware_3_04_00_00_Software/.metadata/.tirex/devices/c2000_mcu.png",
+    "overviewDescription": "C2000 devices are 32-bit microcontrollers with high performance integrated peripherals designed for real-time control applications. Its math-optimized core gives designers the means to improve system efficiency, reliability, and flexibility. Powerful integrated peripherals make C2000 devices the perfect single-chip control solution. These examples involve multiple devices/peripherals to showcase different applications.",
+    "packageOrder": 13
+  },
+  {
+    "text": "F28004x",
+    "type": "folder",
+    "numChildren": 162,
+    "numChildrenLocal": 162,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F28004x&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "F2807x",
+    "type": "folder",
+    "numChildren": 121,
+    "numChildrenLocal": 121,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F2807x&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "F2837xD",
+    "type": "folder",
+    "numChildren": 134,
+    "numChildrenLocal": 134,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F2837xD&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "F2837xS",
+    "type": "folder",
+    "numChildren": 124,
+    "numChildrenLocal": 124,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F2837xS&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "F2838x",
+    "type": "folder",
+    "numChildren": 270,
+    "numChildrenLocal": 270,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F2838x&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "F28002x",
+    "type": "folder",
+    "numChildren": 150,
+    "numChildrenLocal": 150,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/F28002x&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "IQMath",
+    "type": "folder",
+    "numChildren": 21,
+    "numChildrenLocal": 21,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/IQMath&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "FPUFastRTS",
+    "type": "folder",
+    "numChildren": 35,
+    "numChildrenLocal": 35,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/FPUFastRTS&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "CLAMath",
+    "type": "folder",
+    "numChildren": 20,
+    "numChildrenLocal": 20,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/CLAMath&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "FixedPoint",
+    "type": "folder",
+    "numChildren": 10,
+    "numChildrenLocal": 10,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/FixedPoint&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "PMBus",
+    "type": "folder",
+    "numChildren": 6,
+    "numChildrenLocal": 6,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/PMBus&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "FPU",
+    "type": "folder",
+    "numChildren": 87,
+    "numChildrenLocal": 177,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/FPU&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "DCL",
+    "type": "folder",
+    "numChildren": 11,
+    "numChildrenLocal": 11,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/DCL&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "VCU",
+    "type": "folder",
+    "numChildren": 37,
+    "numChildrenLocal": 116,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/VCU&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "FastIntDiv",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/FastIntDiv&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "Ethercat",
+    "type": "folder",
+    "numChildren": 7,
+    "numChildrenLocal": 7,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/Ethercat&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "Ethernet",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 11,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/Ethernet&removeoffline=true",
+    "packageOrder": 13
+  },
+  {
+    "text": "Diagnostic",
+    "type": "folder",
+    "numChildren": 15,
+    "numChildrenLocal": 15,
+    "children": true,
+    "state": {
+      "opened": false
+    },
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "url": "/api/resources?path=Software/C2000Ware/English/Examples&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03",
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?package=c2000ware_software_package__3.04.00.00::com.ti.MSP430_ACADEMY_CN__1.00.00.02::com.ti.MSP430_ACADEMY__1.00.06.29::digital_power_c2000ware_sdk_software_package__3.02.00.00::msp430ware__3.80.13.03::msp_housekeeping__1.00.07.00&path=Software/C2000Ware/English/Examples/Diagnostic&removeoffline=true",
+    "packageOrder": 13
+  }
+]
