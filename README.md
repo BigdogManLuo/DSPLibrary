@@ -1,18 +1,48 @@
-# Digital Signal Process Library for Electronic Design Contest
+# Digital Signal Process Toolbox for Electronic Design Contest
 
-A digital signal processing library for single-chip microcomputer and DSP controller, in which the control unit includes PID controller, PR controller, SOGI second-order generalized integrator, single-phase & three-phase phase-locked loop, and second-order Butterworth filter. C language implementation, and with examples of BUCK, Boost, single-phase and three-phase inverter, single-phase and three-phase rectifier (the code is based on C200Ware's DSP development library). It can be used for the rapid development of electronic design competitions and related project applications in the direction of electronic electronics.
+Our toolbox provides digital signal processing capabilities for microcomputers. The toolbox includes a range of control units, such as PID Controllers and PR Controllers, Second-Order Generalized Integrator(SOGI), Phase-Locked Loop(PLL), and Butterworth filter. Our toolbox is implemented in C language and includes examples for BUCK, Boost, single-phase and three-phase inverter, single-phase and three-phase rectifier. The code is based on C200Ware's DSP development library. 
 
-# Documention
+This library can be used for a quick start of "Ti Cup National Undergraduate Electronics Design Contest".
 
-## 1. DSPTools
-(1) When using, please include the xx.h file in the project, and define and initialize the parameters in the main.c file, and do not define it in the xx.c file. For specific usage, please refer to the function documentation in the xx.c file. <br>
-(2) For control units such as PR controller and SOGI, users are required to design their own parameters. The parameter designer is written in MATLAB. Please run the MATLAB script file to get the design parameters (SOS second-order section matrix and scale parameters), and then in main.c The parameter structure and the parameter structure pointer are defined in the file. <br>
-(3) For filter design, we recommend running the filterDesigner script in MATLAB. After designing the parameters, the SOS matrix can be exported. <br>
-(4) **Please import all xx.c and xx.h files in DSPToos into the project at one time, because there are mutual calls between the files to avoid errors**
-## 2. Test
-C language simulation test for DSPTool code
-## 3.Example
-Buck: Buck DC chopper DC-DC circuit<br>
-Electronic_Load: Single-phase electronic load, the subject of the 2022 Sichuan Electronic Design Competition, first single-phase rectification and then single-phase inverter<br>
-PFC_1.4: Three-phase PWM rectification, question B of the 2021 national competition<br>
-Inversion_3Phase_1.5: Three-phase inverter
+## Installation
+To use our digital signal processing toolbox, you will need a C/C++ development environment and have installed CCS and C2000Ware. 
+![](https://img.shields.io/badge/language-C%2FC%2B%2B-brightgreen)   ![](https://img.shields.io/badge/IDE-CCS-red)  ![](https://img.shields.io/badge/depend-C2000Ware-yellow)
+
+## Usage
+
+ 1.DSPTools folder contains the package that you can include in your main.c. Please make sure to include the necessary headers and source files from the DSPTools folder to call the functions provided by our toolbox.**Do not define any parameters in the xx.c file**. For detailed usage instructions, please refer to the function documentation in the xx.c file.
+For example, you can include the following header in your code:
+
+```C
+#include "DSPTools/PID.h"
+```
+This will allow you to call the PID controller functions from our toolbox.
+
+2.For PR controllers, SOGI and other control units, **users are required to design their own parameters**. A MATLAB-based parameter designer is provided for this purpose. Please run the MATLAB script file to obtain the design parameters (SOS second-order matrix and scale parameters), and then define the parameter structure and parameter structure pointer in the main.c file.
+
+
+3.For filter design, **we recommend using the filterDesigner script in MATLAB to design the parameters**. After designing the parameters, you can export the SOS matrix for use in the library.
+
+4.To avoid errors, **we recommend importing all the xx.c and xx.h files in the DSPTools folder into your project at once**, as these files have mutual calls between each other.
+
+## Test
+The Test folder contains test code for parts of our toolbox. You can run the test code to verify the functionality of specific functions or modules.
+
+## Examples
+
+This library provides examples for various control units and electronic circuits, including:
+
+- **Buck**: a DC-DC circuit with a buck converter
+- **Electronic_Load**: a single-phase electronic load circuit, which was a competition topic in the 2022 Sichuan Province Electronic Design Competition. It involves rectification and inversion of a single-phase circuit
+- **PFC_1.4**: a three-phase PWM rectification circuit, which was a topic in the 2021 National Electronic Design Competition.**Our scheme won the first prize at the national level in this competition**.
+- **Inversion_3Phase_1.5**: a three-phase inverter circuit.
+
+Please refer to the code comments and documentation for more information on how to use our library in your projects.
+
+## Maintainers
+I would like to acknowledge my dear teammates  Xide Li and Jiang Chen for their great contribution to the development of this digital signal processing toolbox. Xide Li provided hardware support, while Jiang Chen worked on the implementation of these toolkits on the DSP controller.
+
+## License
+![](https://img.shields.io/badge/license-MIT-blue)
+
+
