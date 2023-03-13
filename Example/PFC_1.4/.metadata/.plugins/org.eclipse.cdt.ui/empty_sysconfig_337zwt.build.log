@@ -1,0 +1,19 @@
+
+**** Build of configuration CPU1_FLASH for project empty_sysconfig_337zwt ****
+
+"D:\\CCS\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+Building file: "../main.c"
+Invoking: C2000 Compiler
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/CCS_workspace/PFC_1.4/empty_sysconfig_337zwt" --include_path="D:/CCS_workspace/PFC_1.4/empty_sysconfig_337zwt/device" --include_path="D:/CCS/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib" --include_path="D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --define=DEBUG --define=CPU1 --define=_FLASH --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="main.d_raw" --include_path="D:/CCS_workspace/PFC_1.4/empty_sysconfig_337zwt/CPU1_FLASH/syscfg"  "../main.c"
+"../main.c", line 257 (col. 25): advice #2615-D: (Performance) Use --fp_mode=relaxed to enable TMU hardware support for FP division.
+Finished building: "../main.c"
+ 
+Building target: "empty_sysconfig_337zwt.out"
+Invoking: C2000 Linker
+"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --define=DEBUG --define=CPU1 --define=_FLASH --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"empty_sysconfig_337zwt.map" --heap_size=0x200 --stack_size=0x3F8 --warn_sections -i"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/lib" -i"D:/CCS/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="empty_sysconfig_337zwt_linkInfo.xml" --entry_point=code_start --rom_model -o "empty_sysconfig_337zwt.out" "./syscfg/board.obj" "./main.obj" "./nokia_5110.obj" "./pid.obj" "./protect.obj" "./queque.obj" "./transform.obj" "./device/F2837xD_CodeStartBranch.obj" "./device/device.obj" "../2837xD_FLASH_lnk_cpu1.cmd" "D:/CCS/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib"  -llibc.a 
+<Linking>
+Finished building target: "empty_sysconfig_337zwt.out"
+ 
+
+**** Build Finished ****

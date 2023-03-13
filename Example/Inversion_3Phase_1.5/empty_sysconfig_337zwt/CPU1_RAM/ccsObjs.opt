@@ -1,0 +1,1 @@
+"./syscfg/board.obj" "./main.obj" "./nokia_5110.obj" "./pid.obj" "./pll.obj" "./protect.obj" "./transform.obj" "./device/F2837xD_CodeStartBranch.obj" "./device/device.obj" "../2837xD_RAM_lnk_cpu1.cmd" "D:/CCS/ccs/tools/compiler/C2000Ware_3_04_00_00_Software/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib" -llibc.a 

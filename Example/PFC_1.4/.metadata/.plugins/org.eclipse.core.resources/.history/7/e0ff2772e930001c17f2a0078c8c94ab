@@ -1,0 +1,784 @@
+//****************************************************//
+//1.2版本内容
+//1.采用三段控制，分别为不控整流、定电流控制和双闭环控制
+//2.ad未校准
+//3.更新了引脚
+//4.使用了FPU,下一步改进措施为使用TMU
+//****************************************************//
+
+#include "driverlib.h"
+#include "device.h"
+#include "nokia_5110.h"
+#include "pid.h"
+#include "protect.h"
+#include"transform.h"
+#include "math.h"
+#define TS 5000  //比较计数器值
+#define EX_ADC_RESOLUTION       12
+#define Ts  0.0001
+#define L 0.00035
+#define Iset 0.5 //状态二中设定的电流值
+#define pi 3.1415
+float result0 = 0; //Vout
+float result1 = 0;//cVhall
+float result2 = 0;//bVhall
+float result3 = 0;//aVhall
+float result4 = 0;//cVs
+float result5 = 0;//bVs
+float result6 = 0;//aVs
+float V1[100]={0};
+float V2=0,V3=0,V4=0,V5=0,V6=0,V7=0;
+float Vout = 0;
+float Iref = 0;
+float lastV1 = 0;
+int state_flag=1,last_flag=1,state=1;
+
+int outFlag = 0;  //是否有输出的标志位
+
+
+float Im=0.5;   //设定输出电流赋值
+float set_volt = 15;//设定输出电压
+
+int m;//累加计数
+
+//锁相环部分
+float theta=0; //网侧相位
+float sumError_theta=0;//累积相位误差
+float Kp_pll=0.2;
+float Ki_pll=0.05;
+float deltaw=0;
+float f0=50;
+float w0=314.15;
+float fre=0;
+int once=0;
+float fai=0;
+int temp=0;
+float lastVq=0;
+
+int k = 0;
+int i=0;
+float lastV7=0;
+float a=0.3859;
+float sumV1=0;
+float averV1=0;
+float tempV1=0;
+
+void keyboard()
+{
+    if(GPIO_readPin(125)==0)
+    {
+        DEVICE_DELAY_US(2);
+        while(GPIO_readPin(125)==0);
+        set_volt += 0.1;
+        if(set_volt>18)
+        {
+            set_volt=18;
+        }
+
+    }
+
+    if(GPIO_readPin(124)==0)
+        {
+            DEVICE_DELAY_US(2);
+            while(GPIO_readPin(124)==0);
+            set_volt -= 0.1;
+            if(set_volt<10)
+            {
+                set_volt=10;
+            }
+
+        }
+    if(GPIO_readPin(29)==0)
+        {
+
+            DEVICE_DELAY_US(2);
+            while(GPIO_readPin(29)==0);
+
+            GPIO_togglePin(18);
+            GPIO_togglePin(60);
+            GPIO_togglePin(104);
+        }
+    if(GPIO_readPin(59)==0)
+           {
+/*
+               DEVICE_DELAY_US(2);
+               while(GPIO_readPin(59)==0);
+               GPIO_togglePin(18);
+               GPIO_togglePin(60);
+               GPIO_togglePin(104);
+*/
+           }
+
+    if(GPIO_readPin(58)==0)
+           {
+             //  DEVICE_DELAY_US(2);
+             //  while(GPIO_readPin(58)==0);
+
+              }
+}
+void configurePhase(uint32_t base, uint32_t masterBase, uint16_t phaseVal)
+{
+    uint32_t readPrdVal, phaseRegVal;
+
+    //
+    // Read Period value to calculate value for Phase Register
+    //
+    readPrdVal = EPWM_getTimeBasePeriod(masterBase);
+
+    //
+    // Caluclate phase register values based on Time Base counter mode
+    //
+    if((HWREGH(base + EPWM_O_TBCTL) & 0x3U) == EPWM_COUNTER_MODE_UP_DOWN)
+    {
+        phaseRegVal = (2U * readPrdVal * phaseVal) / 360U;
+    }
+    else if((HWREGH(base + EPWM_O_TBCTL) & 0x3U) < EPWM_COUNTER_MODE_UP_DOWN)
+    {
+        phaseRegVal = (readPrdVal * phaseVal) / 360U;
+    }
+
+    EPWM_selectPeriodLoadEvent(base, EPWM_SHADOW_LOAD_MODE_SYNC);
+    EPWM_setPhaseShift(base, phaseRegVal);
+    EPWM_setTimeBaseCounter(base, phaseRegVal);
+}
+
+
+//
+// Function Prototypes
+//
+
+void configureADC(uint32_t adcBase);
+void configurePhase(uint32_t base, uint32_t masterBase, uint16_t phaseVal);
+void initEPWM(void);
+void initADCSOC(void);
+__interrupt void adcA1ISR(void);
+__interrupt void epwm1ISR(void);
+
+void configureDAC(void)
+{
+    //
+    // Set VDAC as the DAC reference voltage.
+    // Edit here to use ADC VREF as the reference voltage.
+    //
+    DAC_setReferenceVoltage(DACB_BASE, DAC_REF_ADC_VREFHI);
+
+    //
+    // Enable the DAC output
+    //
+    DAC_enableOutput(DACB_BASE);
+
+    //
+    // Set the DAC shadow output to 0
+    //
+    DAC_setShadowValue(DACB_BASE, 0);
+
+    //
+    // Delay for buffered DAC to power up
+    //
+    DEVICE_DELAY_US(10);
+}
+
+void GPIO_init(void)
+{
+    EALLOW;
+
+    //myGPIOOutput0 initialization
+
+
+    GPIO_setPinConfig(GPIO_0_EPWM1A);
+    GPIO_setPinConfig(GPIO_2_EPWM2A);
+    GPIO_setPinConfig(GPIO_4_EPWM3A);
+
+        //myGPIOOutput0 initialization
+
+
+    GPIO_setPadConfig(125, GPIO_PIN_TYPE_PULLUP);     // Enable pullup on GPIO66
+    GPIO_setPinConfig(GPIO_125_GPIO125);               // GPIO66 = GPIO66
+    GPIO_setDirectionMode(125, GPIO_DIR_MODE_IN);     // GPIO66 = input
+    GPIO_setPadConfig(124, GPIO_PIN_TYPE_PULLUP);     // Enable pullup on GPIO131
+    GPIO_setPinConfig(GPIO_124_GPIO124);               // GPIO131 = GPIO131
+    GPIO_setDirectionMode(124, GPIO_DIR_MODE_IN);     // GPIO131 = input
+    GPIO_setPadConfig(59, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_59_GPIO59);
+    GPIO_setDirectionMode(59, GPIO_DIR_MODE_IN);
+    GPIO_setPadConfig(58, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_58_GPIO58);
+    GPIO_setDirectionMode(58, GPIO_DIR_MODE_IN);
+
+    GPIO_setDirectionMode(25, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(25, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_25_GPIO25);
+    GPIO_setDirectionMode(52, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(52, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_52_GPIO52);
+    GPIO_setDirectionMode(56, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(56, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_56_GPIO56);
+    GPIO_setPadConfig(29, GPIO_PIN_TYPE_PULLUP);     // Enable pullup on GPIO131
+    GPIO_setPinConfig(GPIO_29_GPIO29);               // GPIO131 = GPIO131
+    GPIO_setDirectionMode(29, GPIO_DIR_MODE_IN);     // GPIO131 = input
+
+    //shut down
+    GPIO_setDirectionMode(18, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(18, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_18_GPIO18);
+
+
+    GPIO_setDirectionMode(60, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(60, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_60_GPIO60);
+
+
+    GPIO_setDirectionMode(104, GPIO_DIR_MODE_OUT);
+    GPIO_setPadConfig(104, GPIO_PIN_TYPE_PULLUP);
+    GPIO_setPinConfig(GPIO_104_GPIO104);
+
+
+    GPIO_writePin(18,1);
+    GPIO_writePin(60,1);
+    GPIO_writePin(104,1);
+    //test
+
+    EDIS;
+}
+
+//
+// Main
+//
+void main(void)
+{
+
+
+    //
+    // Initialize device clock and peripherals
+    //
+     Device_init();
+
+    //
+    // Disable pin locks and enable internal pullups.
+    //
+
+    Device_initGPIO();
+
+    //
+    // Initialize PIE and clear PIE registers. Disables CPU interrupts.
+    //
+    Interrupt_initModule();
+    //
+    // Initialize the PIE vector table with pointers to the shell Interrupt
+    // Service Routines (ISR).
+    //
+    Interrupt_initVectorTable();
+
+    //
+    // Interrupts that are used in this example are re-mapped to ISR functions
+    // found within this file.
+    //
+    Interrupt_register(INT_ADCB3, &adcA1ISR);
+    Interrupt_register(INT_EPWM1, &epwm1ISR);
+    //
+    // Set up the ADC and the ePWM and initialize the SOC
+    //
+    configureADC(ADCA_BASE);
+    configureADC(ADCB_BASE);
+    configureADC(ADCC_BASE);
+    //configureADC(ADCD_BASE);
+    initEPWM();
+
+    initADCSOC();
+    //initCPUTimers();
+    GPIO_init();
+
+    LCD_GPIO_Init();
+    LCD_init();
+    LCD_clear();
+
+    configureDAC();
+
+    DEVICE_DELAY_US(15000);
+    //
+    // Enable ADC interrupt
+    //
+    //configCPUTimer(CPUTIMER0_BASE, DEVICE_SYSCLK_FREQ, 1000);
+    //CPUTimer_enableInterrupt(CPUTIMER0_BASE);
+    Interrupt_enable(INT_ADCB3);
+    Interrupt_enable(INT_EPWM1);
+
+    //
+    // Enable Global Interrupt (INTM) and realtime interrupt (DBGM)
+    //
+    EINT;
+    ERTM;
+
+    //
+    // Start ePWM1, enabling SOCA and putting the counter in up-count mode
+    //
+    EPWM_enableADCTrigger(EPWM1_BASE, EPWM_SOC_A);
+
+    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_setTimeBaseCounterMode(EPWM3_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+
+    while(1)
+    {
+        keyboard();
+
+
+
+
+            show_adc_result(set_volt,Vout);
+
+        /*
+
+       if(LCD_i==15000)
+               {
+                 //  LCD_clear();
+
+                   LCD_i = 0;
+               }
+
+       LCD_i++;
+*/
+      //
+
+
+
+
+        //
+        // Wait while ePWM causes ADC conversions.
+        // ADCA1 ISR processes each new set of conversions.
+        //
+    }
+
+}
+
+//
+// configureADC - Write ADC configurations and power up the ADC for the
+// selected ADC
+//
+void configureADC(uint32_t adcBase)
+{
+    //
+    // Set ADCDLK divider to /4
+    //
+
+    ADC_setPrescaler(adcBase, ADC_CLK_DIV_4_0);
+
+    //
+    // Set resolution and signal mode (see #defines above) and load
+    // corresponding trims.
+    //
+#if(EX_ADC_RESOLUTION == 12)
+    ADC_setMode(adcBase, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
+#elif(EX_ADC_RESOLUTION == 16)
+    ADC_setMode(adcBase, ADC_RESOLUTION_16BIT, ADC_MODE_DIFFERENTIAL);
+#endif
+
+    //
+    // Set pulse positions to late
+    //
+    ADC_setInterruptPulseMode(adcBase, ADC_PULSE_END_OF_CONV);
+
+    //
+    // Power up the ADCs and then delay for 1 ms
+    //
+    ADC_enableConverter(adcBase);
+
+    //
+    // Delay for 1ms to allow ADC time to power up
+    //
+    DEVICE_DELAY_US(1000);
+}
+
+//
+// Function to configure ePWM1 to generate the SOC.
+//
+void initEPWM(void)
+{
+
+    SysCtl_disablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+
+    EPWM_setClockPrescaler(EPWM1_BASE,EPWM_CLOCK_DIVIDER_1,EPWM_HSCLOCK_DIVIDER_1);
+    EPWM_setClockPrescaler(EPWM2_BASE,EPWM_CLOCK_DIVIDER_1,EPWM_HSCLOCK_DIVIDER_1);
+    EPWM_setClockPrescaler(EPWM3_BASE,EPWM_CLOCK_DIVIDER_1,EPWM_HSCLOCK_DIVIDER_1);
+
+/*
+      EPWM_setTimeBaseCounter(EPWM6_BASE, 0);
+      EPWM_setTimeBaseCounter(EPWM5_BASE, 0);
+      EPWM_setTimeBaseCounter(EPWM4_BASE, 0);
+*/
+
+    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_setTimeBaseCounterMode(EPWM3_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+
+    EPWM_setTimeBasePeriod(EPWM1_BASE, 5000);
+    EPWM_setTimeBasePeriod(EPWM2_BASE, 5000);
+    EPWM_setTimeBasePeriod(EPWM3_BASE, 5000);
+    // set period load mode here if necessary
+
+    EPWM_setCounterCompareShadowLoadMode(EPWM1_BASE,EPWM_COUNTER_COMPARE_A,EPWM_COMP_LOAD_ON_CNTR_PERIOD);
+    EPWM_setCounterCompareShadowLoadMode(EPWM2_BASE,EPWM_COUNTER_COMPARE_A,EPWM_COMP_LOAD_ON_CNTR_PERIOD);
+    EPWM_setCounterCompareShadowLoadMode(EPWM3_BASE,EPWM_COUNTER_COMPARE_A,EPWM_COMP_LOAD_ON_CNTR_PERIOD);
+
+    EPWM_setCounterCompareValue(EPWM1_BASE,EPWM_COUNTER_COMPARE_A,0);
+    EPWM_setCounterCompareValue(EPWM2_BASE,EPWM_COUNTER_COMPARE_A,0);
+    EPWM_setCounterCompareValue(EPWM3_BASE,EPWM_COUNTER_COMPARE_A,0);
+
+    EPWM_setActionQualifierAction(EPWM1_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_UP_CMPA);
+    EPWM_setActionQualifierAction(EPWM1_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_DOWN_CMPA);
+    EPWM_setActionQualifierAction(EPWM2_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_UP_CMPA);
+    EPWM_setActionQualifierAction(EPWM2_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_DOWN_CMPA);
+    EPWM_setActionQualifierAction(EPWM3_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_UP_CMPA);
+    EPWM_setActionQualifierAction(EPWM3_BASE,
+                                  EPWM_AQ_OUTPUT_A,
+                                  EPWM_AQ_OUTPUT_TOGGLE,
+                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_DOWN_CMPA);
+    //固定相位差
+
+/*
+    EPWM_disablePhaseShiftLoad(EPWM4_BASE);
+    EPWM_setPhaseShift(EPWM4_BASE, 0U);
+    configurePhase(EPWM5_BASE, EPWM4_BASE, 120);
+    configurePhase(EPWM6_BASE, EPWM4_BASE, 240);
+    EPWM_enablePhaseShiftLoad(EPWM5_BASE);
+    EPWM_enablePhaseShiftLoad(EPWM6_BASE);
+    */
+
+
+    EPWM_setSyncOutPulseMode(EPWM1_BASE,EPWM_SYNC_OUT_PULSE_ON_COUNTER_ZERO);
+    EPWM_setSyncOutPulseMode(EPWM2_BASE,EPWM_SYNC_OUT_PULSE_ON_EPWMxSYNCIN);
+    EPWM_setSyncOutPulseMode(EPWM3_BASE,EPWM_SYNC_OUT_PULSE_ON_EPWMxSYNCIN);
+
+
+    SysCtl_enablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+
+    EPWM_setInterruptSource(EPWM1_BASE, EPWM_INT_TBCTR_PERIOD);
+    EPWM_enableInterrupt(EPWM1_BASE);
+    EPWM_setInterruptEventCount(EPWM1_BASE, 1U);
+
+    EPWM_disableADCTrigger(EPWM1_BASE, EPWM_SOC_A);
+    EPWM_setADCTriggerSource(EPWM1_BASE, EPWM_SOC_A, EPWM_SOC_TBCTR_PERIOD);
+    EPWM_setADCTriggerEventPrescale(EPWM1_BASE, EPWM_SOC_A, 1);
+
+    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_STOP_FREEZE);
+    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_STOP_FREEZE);
+    EPWM_setTimeBaseCounterMode(EPWM3_BASE, EPWM_COUNTER_MODE_STOP_FREEZE);
+
+}
+
+
+
+//
+// Function to configure SOCs on ADCA and ADCD to be triggered by ePWM1.
+//
+
+void initADCSOC(void)
+{
+        uint16_t acqps;
+
+    //
+    // Determine minimum acquisition window (in SYSCLKS) based on resolution
+    //
+    if(EX_ADC_RESOLUTION == 12)
+    {
+        acqps = 14; // 75ns
+    }
+    else //resolution is 16-bit
+    {
+        acqps = 63; // 320ns
+    }
+    //
+    // - NOTE: A longer sampling window will be required if the ADC driving
+    //   source is less than ideal (an ideal source would be a high bandwidth
+    //   op-amp with a small series resistance). See TI application report
+    //   SPRACT6 for guidance on ADC driver design.
+    // - NOTE: SOCs need not use the same S+H window duration, but SOCs
+    //   occurring in parallel (in this example, SOC0 on both ADCs occur in
+    //   parallel, as do the SOC1s on both ADCs, etc.) should usually
+    //   use the same value to ensure simultaneous samples and synchronous
+    //   operation.
+
+    //
+    // Select the channels to convert and the configure the ePWM trigger
+
+    //直流母线电压
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN0, acqps);
+    // 三路电感电流abc
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN2, acqps);//C
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN3, acqps);//B
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER3, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN3, acqps);//A
+    //三路电网电压abc
+    ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER4, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN2, acqps);//C
+    ADC_setupSOC(ADCC_BASE, ADC_SOC_NUMBER5, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN2, acqps);//B
+    ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER6, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN3, acqps);//A
+
+
+
+
+    /*
+    ADC_setupSOC(ADCD_BASE, ADC_SOC_NUMBER1, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN3, acqps);
+    ADC_setupSOC(ADCD_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_EPWM1_SOCA,
+                 ADC_CH_ADCIN4, acqps);*/
+
+    //
+    // Selec SOC2 on ADCA as the interrupt source.  SOC2 on ADCD will end at
+    // the same time, so either SOC2 would be an acceptable interrupt triggger.
+    //
+
+    ADC_setInterruptSource(ADCB_BASE, ADC_INT_NUMBER3, ADC_SOC_NUMBER6);
+    ADC_enableInterrupt(ADCB_BASE, ADC_INT_NUMBER3);
+    ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER3);
+
+}
+
+//
+// ADC A Interrupt 1 ISR
+//
+
+
+__interrupt void adcA1ISR(void)
+{
+    //
+    // Store results
+    //
+
+  //  GPIO_togglePin(7);
+    //adcAResult0[i] = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+    //adcAResult1[i] = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER1);
+    //adcAResult2[i]= ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2);
+
+    result0 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);//直流母线
+    result1 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER1);//电感电流 C
+    result2 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2);//      B
+    result3 = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER3);//      A
+    result4 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER4);//电网电压 C
+    result5 = ADC_readResult(ADCCRESULT_BASE, ADC_SOC_NUMBER5);//      B
+    result6 = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER6);//      A
+
+
+    /*
+    adcDResult1 = ADC_readResult(ADCDRESULT_BASE, ADC_SOC_NUMBER1);
+    adcDResult2 = ADC_readResult(ADCDRESULT_BASE, ADC_SOC_NUMBER2);*/
+
+    //
+    // Clear the interrupt flag
+    //
+    ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER3);
+
+    //
+    // Check if overflow has occurred
+    //
+    if(true == ADC_getInterruptOverflowStatus(ADCB_BASE, ADC_INT_NUMBER3))
+    {
+        ADC_clearInterruptOverflowStatus(ADCB_BASE, ADC_INT_NUMBER3);
+        ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER3);
+    }
+
+    //
+    // Acknowledge the interrupt
+    //
+    Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP10);
+}
+
+
+__interrupt void epwm1ISR(void)
+{
+
+       // GPIO_togglePin(7);
+        //引脚上的实际电压
+        V1[i] = result0*0.0002442*3;//Vout
+        V2 = result1*0.0002442*3;//Vhall
+        V3 = result2*0.0002442*3;
+        V4 = result3*0.0002442*3;
+        V5 = result4*0.0002442*3;//Vs
+        V6 = result5*0.0002442*3;
+        V7 = result6*0.0002442*3;
+
+
+            if(once==0) // 装满之前
+            {
+            sumV1+=V1[i];
+            averV1=__divf32(sumV1,(i+1));
+            i++;
+            }
+            else if(once==1) //装满之后
+            {
+             sumV1=sumV1+V1[i]-tempV1;
+             if(i==99)
+             {
+                 tempV1=V1[0];
+             }
+             else
+             {
+             tempV1=V1[i+1];
+             }
+             averV1=sumV1*0.01;
+             i++;
+            }
+            if(i==100)
+            {
+                once=1;
+                i=0;
+                tempV1=V1[0];
+            }
+            Vout=averV1*52;
+
+
+
+        //换算得到的具体电压电流值
+        IL_3Phase.a = 20*V4-15 ;
+        IL_3Phase.b = 20*V3-15 ;
+        IL_3Phase.c = 20*V2-15 ;
+        Vs_3Phase.a  = 62*(V7-1.5);
+        Vs_3Phase.b  = 62*(V6-1.5);
+        Vs_3Phase.c  = 62*(V5-1.5);
+
+
+        if(Vout>35)
+        {
+
+            GPIO_writePin(18,1);
+            GPIO_writePin(60,1);
+            GPIO_writePin(104,1);
+        }
+        //Clark and Park transform
+        IL_2Phase = clarkTransformation(IL_3Phase);
+        Vs_2Phase = clarkTransformation(Vs_3Phase);
+        IL_dq=parkTransformation(IL_2Phase,theta);
+        Vs_dq=parkTransformation(Vs_2Phase,theta);
+        //锁相
+       // sumError_theta+=Vs_dq.q;
+
+        PID* pPIDTheta=&pidTheta;
+        deltaw=PIDCalc(pPIDTheta,Vs_dq.q,0);
+        if(deltaw>20)//输出限幅
+        {
+            deltaw=20;
+        }
+        theta=theta+deltaw+w0;
+        temp=theta*0.159155;
+        theta=theta-temp*(2*pi);
+
+        DAC_setShadowValue(DACB_BASE,(theta*4095)/(2*pi));    //(theta*4095)/(2*pi)(theta*4095)*0.159155
+        DEVICE_DELAY_US(2);
+
+        //状态判断
+        state_flag = Switch(10,14,Vout);
+/*
+        if(state_flag == last_flag)
+        {
+            k++;
+        }
+        else
+        {
+            k = 0;
+        }
+        if(k==100&&state_flag!=0)
+        {
+            state = state_flag;
+            k = 0;
+        }
+*/
+        PID* pPIDIL = &pidIL;
+        PID* pPIDId = &pidId;
+        PID* pPIDIq = &pidIq;
+        PID* pPIDVd = &pidVd;
+        //控制输出
+        switch(state_flag)
+        {
+        case 1:
+
+            GPIO_writePin(18,1);
+            GPIO_writePin(60,1);
+            GPIO_writePin(104,1);
+
+            break;
+        case 2:
+
+            W_dq.d = PIDCalc(pPIDIL, IL_dq.d, Iset)*0.33;
+            W_dq.q = PIDCalc(pPIDIL, IL_dq.q, 0)*0.33;
+            W_2Phase=invParkTransformation(W_dq,theta);
+            W_3Phase=invClarkTransformation(W_2Phase);
+
+            W_3Phase.a+=0.5;
+            W_3Phase.b+=0.5;
+            W_3Phase.c+=0.5;
+                //防止占空比超过1
+            if(W_3Phase.a>1){W_3Phase.a=0.99;}
+            if(W_3Phase.b>1){W_3Phase.b=0.99;}
+            if(W_3Phase.c>1){W_3Phase.c=0.99;}
+                //防止小于0
+            if(W_3Phase.a<0){W_3Phase.a=0;}
+            if(W_3Phase.b<0){W_3Phase.b=0;}
+            if(W_3Phase.c<0){W_3Phase.c=0;}
+                //输出EPWM波
+            EPWM_setCounterCompareValue(EPWM1_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.a)*5000);
+            EPWM_setCounterCompareValue(EPWM2_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.b)*5000);
+            EPWM_setCounterCompareValue(EPWM3_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.c)*5000);
+            break;
+        case 3:
+             //      双闭环
+             Iref  += PIDCalc(pPIDVd, Vout, set_volt);
+             W_dq.d = (Vs_dq.d + PIDCalc(pPIDId, IL_dq.d, Iref)- (314*L*IL_dq.q));
+             W_dq.d = __divf32(W_dq.d,0.5*Vout);
+             W_dq.q = (Vs_dq.q + PIDCalc(pPIDIq, IL_dq.q, 0)- (314*L*IL_dq.d ));
+             W_dq.q = __divf32(W_dq.q,0.5*Vout);
+             W_2Phase=invParkTransformation(W_dq,theta);
+             W_3Phase=invClarkTransformation(W_2Phase);
+
+             W_3Phase.a+=0.5;
+             W_3Phase.b+=0.5;
+             W_3Phase.c+=0.5;
+                             //防止占空比超过1
+             if(W_3Phase.a>1){W_3Phase.a=0.99;}
+             if(W_3Phase.b>1){W_3Phase.b=0.99;}
+             if(W_3Phase.c>1){W_3Phase.c=0.99;}
+                             //防止小于0
+             if(W_3Phase.a<0){W_3Phase.a=0;}
+             if(W_3Phase.b<0){W_3Phase.b=0;}
+             if(W_3Phase.c<0){W_3Phase.c=0;}
+                             //输出EPWM波
+             EPWM_setCounterCompareValue(EPWM1_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.a)*5000);
+             EPWM_setCounterCompareValue(EPWM2_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.b)*5000);
+             EPWM_setCounterCompareValue(EPWM3_BASE,EPWM_COUNTER_COMPARE_A,(1-W_3Phase.c)*5000);
+             break;
+        default:break;
+        }
+
+        //   EPWM_setCounterCompareValue(base,EPWM_COUNTER_COMPARE_A,duty);
+        //
+        // Clear INT flag for this timer
+        //
+  //      GPIO_togglePin(7);
+        EPWM_clearEventTriggerInterruptFlag(EPWM1_BASE);
+
+        //
+        // Acknowledge interrupt group
+        //
+        Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP3);
+
+}

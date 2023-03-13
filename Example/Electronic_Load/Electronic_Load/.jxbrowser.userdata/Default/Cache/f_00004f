@@ -1,0 +1,622 @@
+[
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=19612876177486417389330&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "19612876177486417389330",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "CLA EX1 ASIN",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/19612876177486417389330?extname=.projectspec",
+    "linkType": "local",
+    "name": "cla_ex1_asin",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/cla_ex1_asin"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/cla_ex1_asin"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/cla_ex1_asin"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/cla_ex1_asin"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/cla_ex1_asin"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "CLA EX1 ASIN",
+    "type": "resource",
+    "text": "cla_ex1_asin",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/19612876177486417389330",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=19610947805590017857320&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "19610947805590017857320",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "CLA EX2 IIR2P2Z",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/19610947805590017857320?extname=.projectspec",
+    "linkType": "local",
+    "name": "cla_ex2_iir2p2z",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/cla_ex2_iir2p2z"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/cla_ex2_iir2p2z"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/cla_ex2_iir2p2z"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/cla_ex2_iir2p2z"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/cla_ex2_iir2p2z"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "CLA EX2 IIR2P2Z",
+    "type": "resource",
+    "text": "cla_ex2_iir2p2z",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/19610947805590017857320",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=19614883751316004235098&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "19614883751316004235098",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "DCSM SECURITY TOOL DUAL",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/19614883751316004235098?extname=.projectspec",
+    "linkType": "local",
+    "name": "dcsm_security_tool_dual",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/dcsm_security_tool_dual"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/dcsm_security_tool_dual"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/dcsm_security_tool_dual"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/dcsm_security_tool_dual"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/dcsm_security_tool_dual"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "DCSM SECURITY TOOL DUAL",
+    "type": "resource",
+    "text": "dcsm_security_tool_dual",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/19614883751316004235098",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=19614608659155990881706&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "19614608659155990881706",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "DMA EX1 SHARED PERIPH",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/19614608659155990881706?extname=.projectspec",
+    "linkType": "local",
+    "name": "dma_ex1_shared_periph",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/dma_ex1_shared_periph"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/dma_ex1_shared_periph"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/dma_ex1_shared_periph"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/dma_ex1_shared_periph"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/dma_ex1_shared_periph"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "DMA EX1 SHARED PERIPH",
+    "type": "resource",
+    "text": "dma_ex1_shared_periph",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/19614608659155990881706",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=1967600078993651855290&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "1967600078993651855290",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "EMIF EX1 16BIT ASRAM DUAL ACCESS",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/1967600078993651855290?extname=.projectspec",
+    "linkType": "local",
+    "name": "emif_ex1_16bit_asram_dual_access",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/emif_ex1_16bit_asram_dual_access"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/emif_ex1_16bit_asram_dual_access"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/emif_ex1_16bit_asram_dual_access"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/emif_ex1_16bit_asram_dual_access"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/emif_ex1_16bit_asram_dual_access"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "EMIF EX1 16BIT ASRAM DUAL ACCESS",
+    "type": "resource",
+    "text": "emif_ex1_16bit_asram_dual_access",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/1967600078993651855290",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=1969472455751841627914&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "1969472455751841627914",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "EMPTY DRIVERLIB PROJECT",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/1969472455751841627914?extname=.projectspec",
+    "linkType": "local",
+    "name": "empty_driverlib_project",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/empty_driverlib_project"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/empty_driverlib_project"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/empty_driverlib_project"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/empty_driverlib_project"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/empty_driverlib_project"
+      }
+    ],
+    "resourceSubClass": [
+      "example.empty"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "EMPTY DRIVERLIB PROJECT",
+    "type": "resource",
+    "text": "empty_driverlib_project",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/1969472455751841627914",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=19617651071522147568158&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "19617651071522147568158",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "IPC EX1 GPIO TOGGLE",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/19617651071522147568158?extname=.projectspec",
+    "linkType": "local",
+    "name": "ipc_ex1_gpio_toggle",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/ipc_ex1_gpio_toggle"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/ipc_ex1_gpio_toggle"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/ipc_ex1_gpio_toggle"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/ipc_ex1_gpio_toggle"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/ipc_ex1_gpio_toggle"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "IPC EX1 GPIO TOGGLE",
+    "type": "resource",
+    "text": "ipc_ex1_gpio_toggle",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/19617651071522147568158",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=1965469921361840639412&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "1965469921361840639412",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "LED EX1 BLINKY",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/1965469921361840639412?extname=.projectspec",
+    "linkType": "local",
+    "name": "led_ex1_blinky",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/led_ex1_blinky"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/led_ex1_blinky"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/led_ex1_blinky"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/led_ex1_blinky"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/led_ex1_blinky"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "LED EX1 BLINKY",
+    "type": "resource",
+    "text": "led_ex1_blinky",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/1965469921361840639412",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=1965947784196618132930&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "1965947784196618132930",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "NMI EX1 HANDLE NMI",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/1965947784196618132930?extname=.projectspec",
+    "linkType": "local",
+    "name": "nmi_ex1_handle_nmi",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/nmi_ex1_handle_nmi"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/nmi_ex1_handle_nmi"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/nmi_ex1_handle_nmi"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/nmi_ex1_handle_nmi"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/nmi_ex1_handle_nmi"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "NMI EX1 HANDLE NMI",
+    "type": "resource",
+    "text": "nmi_ex1_handle_nmi",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/1965947784196618132930",
+    "packageOrder": 13
+  },
+  {
+    "downloadLink": "api/bundle?vid=c2000ware_software_package__3.04.00.00&download=true",
+    "makeofflineLink": "api/bundles?vids=c2000ware_software_package__3.04.00.00",
+    "removeofflineLink": "api/resources?id=1961861290304317763129&path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&removeoffline=true",
+    "_id": "1961861290304317763129",
+    "_originalJsonFile": "C2000Ware_3_04_00_00_Software/.metadata/.tirex/F2837xD.content.tirex.json",
+    "description": "RAM EX1 MANAGEMENT",
+    "devtools": [
+      "TMDSCNCD28377D",
+      "TMDSCNCD28379D",
+      "LAUNCHXL F28379D",
+      "UniFlash",
+      "PinMux",
+      "GUI Composer",
+      "XDS100v2 JTAG Debug Probe (14-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (20-pin TI version)",
+      "XDS100v2 JTAG Debug Probe (ARM version)",
+      "XDS110 Debug Probe",
+      "XDS200 USB Debug Probe",
+      "XDS560v2 System Trace USB Debug Probe",
+      "Code Composer Studio (CCS)"
+    ],
+    "language": [
+      "english"
+    ],
+    "link": "api/linkTo/1961861290304317763129?extname=.projectspec",
+    "linkType": "local",
+    "name": "ram_ex1_management",
+    "packageUId": "c2000ware_software_package__3.04.00.00",
+    "resourceGroup": [
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28374D/Examples/Driverlib/Dual/ram_ex1_management"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28375D/Examples/Driverlib/Dual/ram_ex1_management"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28376D/Examples/Driverlib/Dual/ram_ex1_management"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28377D/Examples/Driverlib/Dual/ram_ex1_management"
+      },
+      {
+        "categoryContext": "Driverlib / Dual",
+        "id": "Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual/ram_ex1_management"
+      }
+    ],
+    "resourceSubClass": [
+      "example.general"
+    ],
+    "resourceType": "projectSpec",
+    "shortDescription": "RAM EX1 MANAGEMENT",
+    "type": "resource",
+    "text": "ram_ex1_management",
+    "url": "/api/resources?path=Software/C2000Ware/English/Devices/F2837XD/F28379D/Examples/Driverlib/Dual&package=c2000ware_software_package__3.04.00.00::digital_power_c2000ware_sdk_software_package__::msp430ware__",
+    "importProject": "api/importProject/1961861290304317763129",
+    "packageOrder": 13
+  }
+]

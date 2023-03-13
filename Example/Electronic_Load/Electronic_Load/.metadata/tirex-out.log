@@ -1,0 +1,4 @@
+-----TI-REX started at Fri Nov 05 2021 12:59:00 GMT+0800 (中国标准时间)
+TIREX server listening on port 55432
+removing old log file tirex-2021-10-26.log
+ride npm module instead at app.js:647:21

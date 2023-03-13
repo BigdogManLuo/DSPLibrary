@@ -1,0 +1,36 @@
+#include"pid.h"
+PID sPID; // PID Control Structure
+
+PID pid_Init(PID pp,double p,double i,double d,double a)
+{
+    pp.Proportion=p;
+    pp.Integral=i;
+    pp.Derivative=d;
+    pp.A=a;
+    pp.LastError=0;
+    pp.PrevError=0;
+    pp.SumError=0;
+    pp.a0=p+i+d;
+    pp.a1=p+2*d;
+    pp.a2=d;
+    return pp;
+}
+
+double PIDCalc( PID* pp, double NextPoint, double set )//位置式
+{
+    double dError,Error;
+    Error = set - NextPoint;       // 偏差
+    if(Error>=0.02||Error<-0.05)//积分限幅
+    {
+    pp->SumError += Error;
+    }// 积分
+
+    dError = pp->LastError -pp->PrevError; // 当前微分
+    pp->PrevError = pp->LastError;
+    pp->LastError = Error;
+    return pp->A*(pp->Proportion * Error   // 比例项
+    + pp->Integral * pp->SumError    // 积分项
+    + pp->Derivative * dError        // 微分项
+    );
+}
+
