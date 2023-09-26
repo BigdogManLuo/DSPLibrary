@@ -47,8 +47,13 @@ This library provides examples for various control units and electronic circuits
 
 Please refer to the code comments and documentation for more information on how to use our library in your projects.
 
-## Maintainers
-I would like to acknowledge my dear teammates  Xide Li and [Jiang Chen](https://github.com/Chen-JIANG-HHH) for their great contribution to the development of this digital signal processing toolbox. Xide Li provided hardware support, while Jiang Chen worked on the implementation of these toolkits on the DSP controller.
+## Author
+- Algorithm on C/C++ and MATLAB: Chuanqing Pu
+- Implement on Micro-Controller: [Jiang Chen](https://github.com/Chen-JIANG-HHH) and Chuanqing Pu
+- Hardware Design: Xide Li
+
+## Acknowledgement
+Thanks to my dear teammates  Xide Li and [Jiang Chen](https://github.com/Chen-JIANG-HHH) for their great contribution to the development of this digital signal processing toolbox. Xide Li provided hardware support, while Jiang Chen worked on the implementation of these toolkits on the DSP controller.
 
 ## License
 ![](https://img.shields.io/badge/license-MIT-blue)
