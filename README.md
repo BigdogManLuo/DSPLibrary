@@ -1,8 +1,16 @@
-# Digital Signal Process Toolbox for Electronic Design Contest
+# DSPLibrary: A C/C++ Based Digital Signal Process Toolbox for Electronic Design Contest
 
 Our toolbox provides digital signal processing capabilities for microcomputers. The toolbox includes a range of control units, such as PID Controllers and PR Controllers, Second-Order Generalized Integrator(SOGI), Phase-Locked Loop(PLL), and Butterworth filter. Our toolbox is implemented in C language and includes examples for BUCK, Boost, single-phase and three-phase inverter, single-phase and three-phase rectifier. The code is based on C200Ware's DSP development library. 
 
 This library can be used for a quick start of "Ti Cup National Undergraduate Electronics Design Contest".
+
+## Function
+- :white_check_mark: ButterWorth_Filter(C/C++ & MATLAB) 巴特沃斯滤波器
+- :white_check_mark: abc<->dq Transformation 静止-同步坐标系变换模块
+- :white_check_mark: PID Controller PID控制器
+- :white_check_mark: PR Controller 比例谐振（PR）控制器
+- :white_check_mark: 3 phase and 1 phase PLL 3相和单相锁相环
+- :white_check_mark: SOGI 二阶广义积分器
 
 ## Installation
 To use our digital signal processing toolbox, you will need a C/C++ development environment and have installed CCS and C2000Ware. 
