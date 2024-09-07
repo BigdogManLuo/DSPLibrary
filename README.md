@@ -42,7 +42,7 @@ This library provides examples for various control units and electronic circuits
 
 - **Buck**: a DC-DC circuit with a buck converter
 - **Electronic_Load**: a single-phase electronic load circuit, which was a competition topic in the 2022 Sichuan Province Electronic Design Competition. It involves rectification and inversion of a single-phase circuit
-- **PFC_1.4**: a three-phase PWM rectification circuit, which was a topic in the 2021 National Electronic Design Competition.**Our scheme won the national first prize in this competition**.
+- **PFC_1.4**: a three-phase PWM rectifier circuit, which was a topic in the 2021 National Electronic Design Competition.**Our scheme won the national first prize in this competition**.
 - **Inversion_3Phase_1.5**: a three-phase inverter circuit.
 
 Please refer to the code comments and documentation for more information on how to use our library in your projects.
